@@ -432,8 +432,10 @@ var SignupPage = /** @class */ (function () {
 var AppSettings = /** @class */ (function () {
     function AppSettings() {
     }
-    AppSettings.apiUrl = 'http://websites.localhost/lawnmower/api/public/api';
-    AppSettings.uploadUrl = 'http://websites.localhost/lawnmower/api/uploads';
+    //public static apiUrl = 'http://websites.localhost/lawnmower/api/public/api';
+    //public static uploadUrl = 'http://websites.localhost/lawnmower/api/uploads';
+    AppSettings.apiUrl = 'http://dev.taylorhamling.com/mowmylawns/api/public/api';
+    AppSettings.uploadUrl = 'http://dev.taylorhamling.com/mowmylawns/api/uploads';
     return AppSettings;
 }());
 
