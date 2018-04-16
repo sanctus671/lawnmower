@@ -1,0 +1,9 @@
+/tslint.json
+/ionic.config.json
+/package.json
+/tsconfig.json
+/.editorconfig
+/src
+/.sourcemaps
+/node_modules
+/plugins
