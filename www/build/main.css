@@ -25708,6 +25708,10 @@ ion-menu ion-header.contractor {
   margin-left: 16px;
 }
 
+ion-footer {
+  background-color: white;
+}
+
 google-maps {
   display: block;
   width: 100%;
