@@ -94,7 +94,7 @@
     <gap:splash src="resources/splash.png" />
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="cordova-plugin-device" spec="^2.0.1" />
+    <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
