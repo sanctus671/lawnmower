@@ -529,10 +529,9 @@ var SignupPage = /** @class */ (function () {
             var fileTransfer = _this.transfer.create();
             var options = {
                 fileKey: "fileToUpload",
-                fileName: "uploadedimage",
-                mimeType: "image/jpeg",
-                httpMethod: "POST",
-                chunkedMode: false
+                fileName: Math.random().toString(36).substring(2),
+                params: {},
+                mimeType: "image/jpeg"
             };
             loading.present();
             fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_9__app_app_settings__["a" /* AppSettings */].uploadUrl), options).then(function (data) {
@@ -858,10 +857,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EditProfileModal = /** @class */ (function () {
-    function EditProfileModal(platform, params, modalCtrl, viewCtrl, camera, storage, alertCtrl, events, transfer, toastCtrl, nativeGeocoder) {
+    function EditProfileModal(platform, params, modalCtrl, loadingCtrl, viewCtrl, camera, storage, alertCtrl, events, transfer, toastCtrl, nativeGeocoder) {
         this.platform = platform;
         this.params = params;
         this.modalCtrl = modalCtrl;
+        this.loadingCtrl = loadingCtrl;
         this.viewCtrl = viewCtrl;
         this.camera = camera;
         this.storage = storage;
@@ -890,6 +890,10 @@ var EditProfileModal = /** @class */ (function () {
         };
         this.camera.getPicture(cameraOptions)
             .then(function (image) {
+            var loading = _this.loadingCtrl.create({
+                content: 'Your image is being uploaded. Please wait...'
+            });
+            loading.present();
             var fileTransfer = _this.transfer.create();
             var options = {
                 fileKey: "fileToUpload",
@@ -897,19 +901,14 @@ var EditProfileModal = /** @class */ (function () {
                 params: {},
                 mimeType: "image/jpeg"
             };
-            var toast = _this.toastCtrl.create({
-                message: 'Your image is being uploaded...',
-                duration: 3000,
-                position: 'bottom'
-            });
-            toast.present();
             fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_5__app_app_settings__["a" /* AppSettings */].uploadUrl), options).then(function (data) {
+                loading.dismiss();
                 var response = JSON.parse(data.response);
                 if (response.success === true) {
                     _this.profile.avatar = response.data;
                 }
                 else {
-                    var alert_1 = _this.alertCtrl.create({
+                    var alert = _this.alertCtrl.create({
                         title: "Error",
                         subTitle: "There was a problem uploading your image",
                         message: JSON.stringify(response),
@@ -920,9 +919,10 @@ var EditProfileModal = /** @class */ (function () {
                             }
                         ]
                     });
-                    alert_1.present();
+                    alert.present();
                 }
             }, function (err) {
+                loading.dismiss();
                 var alert = _this.alertCtrl.create({
                     title: "Error",
                     subTitle: "There was a problem uploading your image",
@@ -944,9 +944,10 @@ var EditProfileModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'edit-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/'<ion-header>\n    <ion-toolbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <ion-title>\n            Edit Profile\n        </ion-title>\n        <ion-buttons start>\n\n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n  \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="male">Male</ion-option>\n            <ion-option value="female">Female</ion-option>\n            <ion-option value="other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>   \n        \n        \n        <div *ngIf="profile.permission === \'contractor\'">\n            \n            \n            <ion-item>\n                <ion-label floating>Website</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.website"></ion-input>\n            </ion-item>   \n            \n            <ion-item>\n                <ion-label floating>Business Hours</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.business_hours"></ion-input>\n            </ion-item>              \n            \n\n            <ion-item>\n                <ion-label floating>Biography/About You</ion-label>\n                <ion-textarea [(ngModel)]="profile.biography"></ion-textarea>\n            </ion-item>\n            \n        </div>\n        \n        \n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="update()">Update Profile</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _m || Object])
     ], EditProfileModal);
     return EditProfileModal;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=edit-profile.js.map
