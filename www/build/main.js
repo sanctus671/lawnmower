@@ -530,7 +530,9 @@ var SignupPage = /** @class */ (function () {
             var options = {
                 fileKey: "fileToUpload",
                 fileName: "uploadedimage",
-                mimeType: "image/jpeg"
+                mimeType: "image/jpeg",
+                httpMethod: "POST",
+                chunkedMode: false
             };
             loading.present();
             fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_9__app_app_settings__["a" /* AppSettings */].uploadUrl), options).then(function (data) {
