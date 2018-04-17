@@ -6,8 +6,8 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contractor_jobs_contractor_jobs__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customer_jobs_customer_jobs__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__ = __webpack_require__(53);
@@ -85,7 +85,7 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/'<ion-content>\n    \n    <div class="login-top-section">\n    \n        <h1 class="logo-text">Mow My Lawn</h1>\n\n        <img class="logo" src="assets/imgs/logo-icon.png" />\n        \n        <p>Find or post lawn mowing jobs</p>\n        <div class=\'bg\'></div>\n        <div class="nectar-shape-divider-wrap " data-front="" data-style="curve_opacity" data-position="top"><svg class="nectar-shape-divider" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 14 s 88.64 3.48 300 36 c 260 40 514 27 703 -10 l 12 28 l 3 36 h -1018 z"></path> <path d="M 0 45 s 271 45.13 500 32 c 157 -9 330 -47 515 -63 v 86 h -1015 z"></path> <path d="M 0 58 s 188.29 32 508 32 c 290 0 494 -35 494 -35 v 45 h -1002 z"></path> </svg></div>\n    </div>\n\n\n\n    \n    \n    <ion-list class="login-form" ion-card>\n\n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.email"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input clearInput type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        \n        <button ion-button full color=\'secondary\' class="login-button" (click)="login()" [disabled]="user.loading">\n            Log In\n            <ion-spinner *ngIf="user.loading"></ion-spinner>\n        </button>\n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n         \n        <p>Don\'t have an account? <a (click)="signup()">Sign up</a></p>\n   \n        \n        \n    </ion-list>\n    \n\n</ion-content>\n\n\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
     ], LoginPage);
     return LoginPage;
 }());
@@ -100,7 +100,7 @@ var LoginPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindAddressModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -130,7 +130,7 @@ var FindAddressModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'find-address',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\find-address\find-address.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Find Address\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <google-places-autocomplete (callback)="detail($event)" key="AIzaSyBnYKCTzKwkOjRmnyuzKNSmDopgI2yWbns" [(ngModel)]="address"></google-places-autocomplete>\n \n\n    </ion-list>  \n        \n        \n</ion-content>\n\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\find-address\find-address.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
     ], FindAddressModal);
     return FindAddressModal;
 }());
@@ -139,7 +139,7 @@ var FindAddressModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 133:
+/***/ 132:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -152,11 +152,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 133;
+webpackEmptyAsyncContext.id = 132;
 
 /***/ }),
 
-/***/ 174:
+/***/ 173:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -169,25 +169,25 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 174;
+webpackEmptyAsyncContext.id = 173;
 
 /***/ }),
 
-/***/ 218:
+/***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_jobs_contractor_jobs__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_jobs_customer_jobs__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file_transfer__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_app_settings__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_app_settings__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_google_maps_google_maps__ = __webpack_require__(345);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -214,27 +214,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SignupPage = /** @class */ (function () {
-    function SignupPage(navCtrl, navParams, authProvider, profileProvider, alertCtrl, camera, transfer, toastCtrl) {
+    function SignupPage(navCtrl, navParams, events, authProvider, profileProvider, alertCtrl, camera, transfer, toastCtrl, loadingCtrl) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.events = events;
         this.authProvider = authProvider;
         this.profileProvider = profileProvider;
         this.alertCtrl = alertCtrl;
         this.camera = camera;
         this.transfer = transfer;
         this.toastCtrl = toastCtrl;
-        this.profile = { avatar: "https://www.drupal.org/files/issues/default-avatar.png", radius: 50 };
+        this.loadingCtrl = loadingCtrl;
+        this.profile = { avatar: "https://www.drupal.org/files/issues/default-avatar.png", radius: 20, latitude: -36.89479598377308, longitude: 174.75231011873302 };
         this.user = { email: "", password: "", permission: "customer", loading: false };
         this.stage = 1;
+        this.events.subscribe("location:updated", function (event) {
+            console.log(event);
+            _this.profile.latitude = event.latLng.lat();
+            _this.profile.longitude = event.latLng.lng();
+            console.log(_this.profile);
+        });
     }
     SignupPage.prototype.nextStage = function () {
-        if (this.stage === 2 && (!this.profile.email || !this.validateEmail(this.profile.email))) {
-            var alert_1 = this.alertCtrl.create({
+        if (this.stage === 2 && (!this.profile.public_email || !this.validateEmail(this.profile.public_email))) {
+            var alert = this.alertCtrl.create({
                 title: 'Invalid Email',
                 subTitle: 'A valid email is required to sign up.',
                 buttons: ['Dismiss']
             });
-            alert_1.present();
+            alert.present();
             return;
         }
         else if (this.stage === 2 && this.user.permission === "customer") {
@@ -243,15 +252,9 @@ var SignupPage = /** @class */ (function () {
         else {
             this.stage += 1;
         }
-        if (this.stage === 3) {
-            this.loadMap();
-        }
     };
     SignupPage.prototype.changeStage = function (stage) {
         this.stage = stage;
-        if (this.stage === 3) {
-            this.loadMap();
-        }
     };
     SignupPage.prototype.selectUserType = function (userType) {
         this.user.permission = userType;
@@ -295,61 +298,8 @@ var SignupPage = /** @class */ (function () {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     };
-    SignupPage.prototype.loadMap = function () {
-        var _this = this;
-        //set default lat and lng as auckland city
-        this.profile.latitude = -36.8626662;
-        this.profile.longitude = -174.7253866;
-        console.log("loading");
-        var mapOptions = {
-            camera: {
-                target: {
-                    lat: -36.8626662,
-                    lng: -174.7253866
-                },
-                zoom: 11,
-                tilt: 30
-            }
-        };
-        this.map = __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */].create('map', mapOptions);
-        this.map.one(__WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["b" /* GoogleMapsEvent */].MAP_READY).then(function () {
-            _this.map.addEventListener("click").subscribe(function (data) {
-                console.log(data);
-                _this.addMarker(data);
-            });
-        });
-    };
-    SignupPage.prototype.addMarker = function (data) {
-        //set profile lat and lng
-        this.profile.latitude = data.lat;
-        this.profile.longitude = data.lng;
-        //remove other markers
-        this.map.clear();
-        this.map.addMarker({
-            icon: '#79b402',
-            animation: 'DROP',
-            position: {
-                lat: this.profile.latitude,
-                lng: this.profile.longitude
-            }
-        });
-        //add this marker
-        //add radius circle
-        this.map.addCircle({
-            center: { lat: this.profile.latitude, lng: this.profile.longitude },
-            radius: this.profile.radius * 100,
-            strokeColor: '#79b402',
-            strokeOpacity: 0.8,
-            strokeWidth: 5,
-            fillColor: '#79b402',
-            fillOpacity: 0.35,
-        });
-    };
     SignupPage.prototype.updateRadius = function () {
-        if (!this.map) {
-            return;
-        }
-        this.addMarker({ lat: this.profile.latitude, lng: this.profile.longitude });
+        this.mapComponent.updateRadius(this.profile.radius, this.profile.latitude, this.profile.longitude);
     };
     SignupPage.prototype.changeAvatar = function () {
         var _this = this;
@@ -368,19 +318,19 @@ var SignupPage = /** @class */ (function () {
                 params: {},
                 mimeType: "image/jpeg"
             };
-            var toast = _this.toastCtrl.create({
-                message: 'Your image is being uploaded...',
-                duration: 3000,
-                position: 'bottom'
+            var loading = _this.loadingCtrl.create({
+                content: 'Your image is being uploaded. Please wait...'
             });
-            toast.present();
-            fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_9__app_app_settings__["a" /* AppSettings */].uploadUrl), options).then(function (data) {
+            loading.present();
+            fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_8__app_app_settings__["a" /* AppSettings */].uploadUrl), options).then(function (data) {
+                loading.dismiss();
+                console.log(data);
                 var response = JSON.parse(data.response);
                 if (response.success === true) {
                     _this.profile.avatar = response.data;
                 }
                 else {
-                    var alert_2 = _this.alertCtrl.create({
+                    var alert = _this.alertCtrl.create({
                         title: "Error",
                         subTitle: "There was a problem uploading your image",
                         message: JSON.stringify(response),
@@ -391,9 +341,10 @@ var SignupPage = /** @class */ (function () {
                             }
                         ]
                     });
-                    alert_2.present();
+                    alert.present();
                 }
             }, function (err) {
+                loading.dismiss();
                 var alert = _this.alertCtrl.create({
                     title: "Error",
                     subTitle: "There was a problem uploading your image",
@@ -414,20 +365,25 @@ var SignupPage = /** @class */ (function () {
     SignupPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SignupPage');
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_9__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_9__components_google_maps_google_maps__["a" /* GoogleMapsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]) === "function" && _a || Object)
+    ], SignupPage.prototype, "mapComponent", void 0);
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="secondary">\n        <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    \n    <ul class=\'signup-progress\'>\n        <li class=\'active\' (click)="changeStage(1)">What Are You?</li>\n        <li [ngClass]="{\'active\' : stage > 1}" (click)="changeStage(2)">About You</li>\n        <li *ngIf="user.permission === \'contractor\'" [ngClass]="{\'active\' : stage > 2}" (click)="changeStage(3)">Radius Serviced</li>\n        <li [ngClass]="{\'active\' : stage > 3}" (click)="changeStage(4)">Security</li>\n    </ul>\n    \n    \n    <div class="card-background-page signup-types" *ngIf="!stage || stage === 1">\n        <ion-list-header>\n            <h1>What Are You?</h1>\n        </ion-list-header>  \n        <ion-card (click)="selectUserType(\'customer\')"  [ngClass]="{\'active\' : user.permission === \'customer\'}">\n          <img src="assets/imgs/lawn.jpg"/>\n          <div class="card-title">Customer</div>\n          <div class="card-subtitle">I need my lawns mowed</div>\n        </ion-card>\n\n        <ion-card (click)="selectUserType(\'contractor\')" [ngClass]="{\'active\' : user.permission === \'contractor\'}">\n          <img src="assets/imgs/mow.jpg"/>\n          <div class="card-title">Contractor</div>\n          <div class="card-subtitle">I want to mow lawns</div>\n        </ion-card>\n\n\n    </div>  \n       \n    \n    <ion-list *ngIf="stage === 2">\n        <ion-list-header>\n            <h1>About You</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button color=\'secondary\' (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="Male">Male</ion-option>\n            <ion-option value="Female">Female</ion-option>\n            <ion-option value="Other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>        \n        \n    </ion-list>    \n    \n\n    \n    \n    <ion-list *ngIf="stage === 3">\n        \n    <ion-list-header class="radius-header">\n        Radius Serviced (km)\n        <ion-badge item-end>{{profile.radius}}</ion-badge>\n    </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="100" step="10" [(ngModel)]="profile.radius" pin="true" (ionChange)="updateRadius()">\n                \n                <ion-icon small range-left name="locate"></ion-icon>\n                <ion-icon range-right name="locate"></ion-icon>\n            </ion-range>\n         </ion-item>   \n        \n        \n        <div id=\'map\'></div>\n        \n    </ion-list>\n    \n    <ion-list *ngIf="stage === 4">\n        <ion-list-header>\n            <h1>Security</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item> \n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n        \n    </ion-list>     \n    \n    \n</ion-content>\n\n\n<ion-footer>\n    <button ion-button full color=\'secondary\' (click)="nextStage()" *ngIf="!stage || stage < 4">Next&nbsp;&nbsp;<ion-icon name="arrow-forward"></ion-icon></button>\n\n    <button ion-button full color=\'secondary\' class="login-button" [disabled]="user.loading" (click)="signup()" *ngIf="stage === 4">\n        Get Started&nbsp;&nbsp;\n        <ion-icon name="arrow-forward"></ion-icon>\n        <ion-spinner *ngIf="user.loading"></ion-spinner>\n    </button>\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="secondary">\n        <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    \n    <ul class=\'signup-progress\'>\n        <li class=\'active\' (click)="changeStage(1)">What Are You?</li>\n        <li [ngClass]="{\'active\' : stage > 1}" (click)="changeStage(2)">About You</li>\n        <li *ngIf="user.permission === \'contractor\'" [ngClass]="{\'active\' : stage > 2}" (click)="changeStage(3)">Location</li>\n        <li [ngClass]="{\'active\' : stage > 3}" (click)="changeStage(4)">Security</li>\n    </ul>\n    \n    \n    <div class="card-background-page signup-types" *ngIf="!stage || stage === 1">\n        <ion-list-header>\n            <h1>What Are You?</h1>\n        </ion-list-header>  \n        <ion-card (click)="selectUserType(\'customer\')"  [ngClass]="{\'active\' : user.permission === \'customer\'}">\n          <img src="assets/imgs/lawn.jpg"/>\n          <div class="card-title">Customer</div>\n          <div class="card-subtitle">I need my lawns mowed</div>\n        </ion-card>\n\n        <ion-card (click)="selectUserType(\'contractor\')" [ngClass]="{\'active\' : user.permission === \'contractor\'}">\n          <img src="assets/imgs/mow.jpg"/>\n          <div class="card-title">Contractor</div>\n          <div class="card-subtitle">I want to mow lawns</div>\n        </ion-card>\n\n\n    </div>  \n       \n    \n    <ion-list *ngIf="stage === 2">\n        <ion-list-header>\n            <h1>About You</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button color=\'secondary\' (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="Male">Male</ion-option>\n            <ion-option value="Female">Female</ion-option>\n            <ion-option value="Other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>        \n        \n    </ion-list>    \n    \n\n    \n    \n    <ion-list *ngIf="stage === 3">\n        \n    <ion-list-header class="radius-header">\n        Radius Serviced (km)\n        <ion-badge item-end>{{profile.radius}}km</ion-badge>\n    </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="100" step="10" [(ngModel)]="profile.radius" pin="true" (ionChange)="updateRadius()">\n                \n                <ion-icon small range-left name="locate"></ion-icon>\n                <ion-icon range-right name="locate"></ion-icon>\n            </ion-range>\n         </ion-item>   \n        \n        \n        <google-maps apiKey="AIzaSyDkvDS9y2q27OyDfnrJdMk0xh_flzbAzhc" latitude="{{profile.latitude}}" longitude="{{profile.longitude}}" radius="{{profile.radius}}"></google-maps>\n        \n    </ion-list>\n    \n    <ion-list *ngIf="stage === 4">\n        <ion-list-header>\n            <h1>Security</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item> \n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n        \n    </ion-list>     \n    \n    \n</ion-content>\n\n\n<ion-footer>\n    <button ion-button full color=\'secondary\' (click)="nextStage()" *ngIf="!stage || stage < 4">Next&nbsp;&nbsp;<ion-icon name="arrow-forward"></ion-icon></button>\n\n    <button ion-button full color=\'secondary\' class="login-button" [disabled]="user.loading" (click)="signup()" *ngIf="stage === 4">\n        Get Started&nbsp;&nbsp;\n        <ion-icon name="arrow-forward"></ion-icon>\n        <ion-spinner *ngIf="user.loading"></ion-spinner>\n    </button>\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _l || Object])
     ], SignupPage);
     return SignupPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=signup.js.map
 
 /***/ }),
 
-/***/ 30:
+/***/ 31:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -453,8 +409,8 @@ var AppSettings = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -660,17 +616,17 @@ var JobProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 342:
+/***/ 341:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfileModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_app_settings__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_app_settings__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
@@ -778,7 +734,7 @@ var EditProfileModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'edit-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/'<ion-header>\n    <ion-toolbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <ion-title>\n            Edit Profile\n        </ion-title>\n        <ion-buttons start>\n\n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n  \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="male">Male</ion-option>\n            <ion-option value="female">Female</ion-option>\n            <ion-option value="other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>   \n        \n        \n        <div *ngIf="profile.permission === \'contractor\'">\n            \n            \n            <ion-item>\n                <ion-label floating>Website</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.website"></ion-input>\n            </ion-item>   \n            \n            <ion-item>\n                <ion-label floating>Business Hours</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.business_hours"></ion-input>\n            </ion-item>              \n            \n\n            <ion-item>\n                <ion-label floating>Biography/About You</ion-label>\n                <ion-textarea [(ngModel)]="profile.biography"></ion-textarea>\n            </ion-item>\n            \n        </div>\n        \n        \n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="update()">Update Profile</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
     ], EditProfileModal);
     return EditProfileModal;
 }());
@@ -787,14 +743,14 @@ var EditProfileModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 343:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FiltersModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -830,7 +786,7 @@ var FiltersModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'filters',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\filters\filters.html"*/'<ion-header>\n    <ion-toolbar color="secondary">\n        <ion-title>\n            Filters\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-item>\n      <ion-label floating>Order By</ion-label>\n      <ion-select [(ngModel)]="filters.orderBy">\n        <ion-option value="created_at">Date Created</ion-option>\n        <ion-option value="price">Price</ion-option>\n        <ion-option value="title">Title</ion-option>\n        <ion-option value="preferred_time">Preferred Date & Time</ion-option>\n      </ion-select>\n    </ion-item>        \n    \n    <ion-item>\n      <ion-label floating>Order Direction</ion-label>\n      <ion-select [(ngModel)]="filters.orderDirection">\n        <ion-option value="DESC">Descending</ion-option>\n        <ion-option value="ASC">Ascending</ion-option>\n      </ion-select>\n    </ion-item> \n    \n    <ion-item>\n        <ion-label floating>Lowest Price</ion-label>\n        <ion-input type="number" [(ngModel)]="filters.priceLow"></ion-input>\n    </ion-item>     \n\n\n    <ion-item>\n        <ion-label floating>Highest Price</ion-label>\n        <ion-input type="number" [(ngModel)]="filters.priceHigh"></ion-input>\n    </ion-item> \n    \n</ion-content>\n\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'secondary\' (click)="update()">Update Filters</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\filters\filters.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], FiltersModal);
     return FiltersModal;
 }());
@@ -839,18 +795,18 @@ var FiltersModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 344:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateJobModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modals_find_address_find_address__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_app_settings__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_app_settings__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1062,9 +1018,9 @@ var CreateJobModal = /** @class */ (function () {
     };
     CreateJobModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'create-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Create Job\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-label floating>Price ($)</ion-label>\n            <ion-input type="number" [(ngModel)]="job.price"></ion-input>\n        </ion-item>   \n        \n        \n    \n        <ion-item>\n            <ion-label floating>Location</ion-label>\n            <ion-input type="text" [(ngModel)]="job.location" (ionFocus)="openFindAddress()"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Preferred Date & Time</ion-label>\n            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="job.preferred_time"></ion-datetime>\n        </ion-item>         \n        \n        \n        <ion-item>\n            <ion-label floating>Description</ion-label>\n            <ion-textarea [(ngModel)]="job.description"></ion-textarea>\n        </ion-item>         \n        \n        <ion-item>\n            <p>Gallery</p>\n            <div class="job-add-images">\n                \n                <div class="job-image" *ngFor="let image of job.imagesArray;let i = index" (click)="openImageOptions(i)">\n                     <img [src]="image">\n                </div>\n                <div class="job-add-image" (click)="addImage()"><ion-icon name="add"></ion-icon></div>\n                \n            </div>    \n                \n        </ion-item>\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color=\'primary\' (click)="create()" [disabled]="!job.price || !job.location || !job.description">Create Job</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/
+            selector: 'create-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Create Job\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-label floating>Price ($)</ion-label>\n            <ion-input type="number" [(ngModel)]="job.price"></ion-input>\n        </ion-item>   \n        \n        \n    \n        <ion-item>\n            <ion-label floating>Location</ion-label>\n            <ion-input type="text" [(ngModel)]="job.location" (ionFocus)="openFindAddress()"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Preferred Date & Time</ion-label>\n            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="job.preferred_time"></ion-datetime>\n        </ion-item>      \n        \n        <ion-item>\n            <ion-label floating>Job Title</ion-label>\n            <ion-input type="text" [(ngModel)]="job.title"></ion-input>\n        </ion-item>          \n        \n        \n        <ion-item>\n            <ion-label floating>Description</ion-label>\n            <ion-textarea [(ngModel)]="job.description"></ion-textarea>\n        </ion-item>         \n        \n        <ion-item>\n            <p>Gallery</p>\n            <div class="job-add-images">\n                \n                <div class="job-image" *ngFor="let image of job.imagesArray;let i = index" (click)="openImageOptions(i)">\n                     <img [src]="image">\n                </div>\n                <div class="job-add-image" (click)="addImage()"><ion-icon name="add"></ion-icon></div>\n                \n            </div>    \n                \n        </ion-item>\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color=\'primary\' (click)="create()" [disabled]="!job.price || !job.location || !job.description">Create Job</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
     ], CreateJobModal);
     return CreateJobModal;
 }());
@@ -1073,18 +1029,18 @@ var CreateJobModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 345:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditJobModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modals_find_address_find_address__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_app_settings__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_app_settings__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
@@ -1329,12 +1285,217 @@ var EditJobModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'edit-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-job\edit-job.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Edit Job\n        </ion-title>\n        <ion-buttons start>\n            \n            <button icon-start ion-button (click)="openDelete()" showWhen="android, windows">\n                <ion-icon name="md-trash"></ion-icon>\n                Delete\n            </button> \n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n        \n        \n        <ion-buttons showWhen="ios" end>    \n            <button ion-button (click)="openDelete()">\n                <span ion-text>Delete</span>\n            </button>              \n        </ion-buttons>        \n        \n        \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-label floating>Price ($)</ion-label>\n            <ion-input type="number" [(ngModel)]="job.price"></ion-input>\n        </ion-item>   \n \n        \n    \n        <ion-item>\n            <ion-label floating>Location</ion-label>\n            <ion-input type="text" [(ngModel)]="job.location" (ionFocus)="openFindAddress()"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Preferred Date & Time</ion-label>\n            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="job.preferred_time"></ion-datetime>\n        </ion-item>         \n\n        <ion-item>\n            <ion-label floating>Job Title</ion-label>\n            <ion-input type="text" [(ngModel)]="job.title"></ion-input>\n        </ion-item>  \n        \n        <ion-item>\n            <ion-label floating>Description</ion-label>\n            <ion-textarea [(ngModel)]="job.description"></ion-textarea>\n        </ion-item>         \n        \n        <ion-item>\n            <p>Gallery</p>\n            <div class="job-add-images">\n                \n                <div class="job-image" *ngFor="let image of job.imagesArray;let i = index" (click)="openImageOptions(i)">\n                     <img [src]="image">\n                </div>\n                <div class="job-add-image" (click)="addImage()"><ion-icon name="add"></ion-icon></div>\n                \n            </div>    \n                \n        </ion-item>\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color=\'primary\' (click)="update()" [disabled]="!job.price || !job.location || !job.title">Update Job</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-job\edit-job.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
     ], EditJobModal);
     return EditJobModal;
 }());
 
 //# sourceMappingURL=edit-job.js.map
+
+/***/ }),
+
+/***/ 345:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleMapsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var google;
+var GoogleMapsComponent = /** @class */ (function () {
+    function GoogleMapsComponent(renderer, element, _document, storage, events) {
+        this.renderer = renderer;
+        this.element = element;
+        this._document = _document;
+        this.storage = storage;
+        this.events = events;
+        this.markers = [];
+        this.circles = [];
+        this.mapsLoaded = false;
+    }
+    GoogleMapsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.storage.get("user").then(function (user) {
+            if (user) {
+                _this.profile = user.profile;
+            }
+            else {
+                _this.profile = { latitude: -36.89479598377308, longitude: 174.752310118, radius: 20 };
+            }
+            if (_this.latitude) {
+                _this.profile.latitude = _this.latitude;
+            }
+            if (_this.longitude) {
+                _this.profile.longitude = _this.longitude;
+            }
+            if (_this.radius) {
+                _this.profile.radius = _this.radius;
+            }
+            _this.init().then(function (res) {
+                console.log("Google Maps ready.");
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    GoogleMapsComponent.prototype.init = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.loadSDK().then(function (res) {
+                _this.initMap().then(function (res) {
+                    resolve(true);
+                }, function (err) {
+                    reject(err);
+                });
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    GoogleMapsComponent.prototype.loadSDK = function () {
+        var _this = this;
+        console.log("Loading Google Maps SDK");
+        return new Promise(function (resolve, reject) {
+            if (!_this.mapsLoaded) {
+                _this.injectSDK().then(function (res) {
+                    resolve(true);
+                }, function (err) {
+                    reject(err);
+                });
+            }
+            else {
+                reject('SDK already loaded');
+            }
+        });
+    };
+    GoogleMapsComponent.prototype.injectSDK = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            window['mapInit'] = function () {
+                _this.mapsLoaded = true;
+                google = window["google"];
+                resolve(true);
+            };
+            if (document.getElementById("googleMaps")) {
+                _this.mapsLoaded = true;
+                google = window["google"];
+                resolve(true);
+            }
+            else {
+                var script = _this.renderer.createElement('script');
+                script.id = 'googleMaps';
+                if (_this.apiKey) {
+                    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + _this.apiKey + '&callback=mapInit';
+                }
+                else {
+                    script.src = 'https://maps.googleapis.com/maps/api/js?callback=mapInit';
+                }
+                _this.renderer.appendChild(_this._document.body, script);
+            }
+        });
+    };
+    GoogleMapsComponent.prototype.initMap = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var latLng = new google.maps.LatLng(_this.profile.latitude, _this.profile.longitude);
+            var mapOptions = {
+                center: latLng,
+                zoom: 9
+            };
+            _this.map = new google.maps.Map(_this.element.nativeElement, mapOptions);
+            _this.map.addListener('click', function (event) {
+                _this.addMarker(event.latLng);
+                _this.events.publish("location:updated", event);
+            });
+            _this.addMarker(latLng);
+            resolve(true);
+        });
+    };
+    GoogleMapsComponent.prototype.updateRadius = function (radius, lat, lng) {
+        this.profile.radius = radius;
+        this.profile.latitude = lat;
+        this.profile.longitude = lng;
+        console.log(this.profile);
+        var latLng = new google.maps.LatLng(this.profile.latitude, this.profile.longitude);
+        this.addMarker(latLng);
+    };
+    GoogleMapsComponent.prototype.addMarker = function (latLng) {
+        //clear existing markers
+        for (var i = 0; i < this.markers.length; i++) {
+            this.markers[i].setMap(null);
+        }
+        this.markers = [];
+        //add the market
+        var marker = new google.maps.Marker({
+            map: this.map,
+            animation: google.maps.Animation.DROP,
+            position: latLng
+        });
+        this.markers.push(marker);
+        //clear existing circles
+        for (var x = 0; x < this.circles.length; x++) {
+            this.circles[x].setMap(null);
+        }
+        this.circles = [];
+        //add the circle
+        var circle = new google.maps.Circle({
+            strokeColor: '#79b402',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#79b402',
+            fillOpacity: 0.35,
+            map: this.map,
+            center: latLng,
+            radius: (this.profile.radius / 6378.1) * 6378100
+        });
+        this.circles.push(circle);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('apiKey'),
+        __metadata("design:type", String)
+    ], GoogleMapsComponent.prototype, "apiKey", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('latitude'),
+        __metadata("design:type", String)
+    ], GoogleMapsComponent.prototype, "latitude", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('longitude'),
+        __metadata("design:type", String)
+    ], GoogleMapsComponent.prototype, "longitude", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('radius'),
+        __metadata("design:type", String)
+    ], GoogleMapsComponent.prototype, "radius", void 0);
+    GoogleMapsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'google-maps',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\google-maps\google-maps.html"*/'<!-- Generated template for the GoogleMapsComponent component -->\n<div>\n  {{text}}\n</div>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\google-maps\google-maps.html"*/
+        }),
+        __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b" /* DOCUMENT */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Renderer2 */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Renderer2 */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _b || Object, Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */]) === "function" && _d || Object])
+    ], GoogleMapsComponent);
+    return GoogleMapsComponent;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=google-maps.js.map
 
 /***/ }),
 
@@ -1344,8 +1505,8 @@ var EditJobModal = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_email_composer__ = __webpack_require__(347);
@@ -1531,7 +1692,7 @@ var SettingsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-settings',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\settings\settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar [color]="user.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        \n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>         \n        \n        <ion-title>Settings</ion-title>\n    \n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n<ion-list class="settings-list">\n    \n    \n    <ion-list-header>\n        <h2>Support</h2>\n    </ion-list-header>  \n    \n <ion-item>\n    <ion-icon name="heart" item-start></ion-icon>\n    Rate The App\n    <button ion-button outline item-end (click)="openRate()">Rate</button>\n  </ion-item>    \n    \n    \n <ion-item>\n    <ion-icon name="logo-facebook" item-start></ion-icon>\n    Follow Us\n    <button ion-button outline item-end (click)="openFollow()">Follow</button>\n  </ion-item>   \n    \n    \n <ion-item>\n    <ion-icon name="mail" item-start></ion-icon>\n    Contact Support\n    <button ion-button outline item-end (click)="openEmail()">Email</button>\n  </ion-item>     \n    \n    \n    <ion-list-header>\n        <h2>Account Settings</h2>\n    </ion-list-header>      \n    \n    <button ion-item detail-none (click)="openUpdateRadius()" *ngIf="user.permission === \'contractor\'">\n            <ion-icon name="locate" item-start></ion-icon>\n        Change Location & Radius\n        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>\n    </button>  \n\n    <button ion-item detail-none (click)="openChangePassword()">\n            <ion-icon name="unlock" item-start></ion-icon>\n        Change Password\n        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>\n    </button>  \n  \n\n\n    <button ion-item detail-none (click)="logout()">\n            <ion-icon name="lock" item-start></ion-icon>\n        Logout\n    </button> \n\n     \n</ion-list>    \n \n</ion-content>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\settings\settings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_email_composer__["a" /* EmailComposer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_email_composer__["a" /* EmailComposer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]])
     ], SettingsPage);
     return SettingsPage;
 }());
@@ -1546,10 +1707,10 @@ var SettingsPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateRadiusModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_geocoder__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_google_maps_google_maps__ = __webpack_require__(345);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1566,6 +1727,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var UpdateRadiusModal = /** @class */ (function () {
     function UpdateRadiusModal(platform, params, modalCtrl, viewCtrl, storage, alertCtrl, events, toastCtrl, nativeGeocoder) {
+        var _this = this;
         this.platform = platform;
         this.params = params;
         this.modalCtrl = modalCtrl;
@@ -1577,7 +1739,10 @@ var UpdateRadiusModal = /** @class */ (function () {
         this.nativeGeocoder = nativeGeocoder;
         this.profile = {};
         Object.assign(this.profile, this.params.data.profile);
-        this.loadMap();
+        this.events.subscribe("location:updated", function (event) {
+            _this.profile.latitude = event.latLng.lat();
+            _this.profile.longitude = event.latLng.lng();
+        });
     }
     UpdateRadiusModal.prototype.update = function () {
         this.viewCtrl.dismiss(this.profile);
@@ -1585,71 +1750,21 @@ var UpdateRadiusModal = /** @class */ (function () {
     UpdateRadiusModal.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
-    UpdateRadiusModal.prototype.loadMap = function () {
-        //set default lat and lng as auckland city
-        //this.profile.latitude = -36.8626662;
-        //this.profile.longitude = -174.7253866;    
-        var _this = this;
-        console.log("loading");
-        var mapOptions = {
-            camera: {
-                target: {
-                    lat: this.profile.latitude,
-                    lng: this.profile.longitude
-                },
-                zoom: 11,
-                tilt: 30
-            }
-        };
-        this.map = __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["a" /* GoogleMaps */].create('map', mapOptions);
-        this.map.one(__WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["b" /* GoogleMapsEvent */].MAP_READY).then(function () {
-            //add existing
-            _this.addMarker({ lat: _this.profile.latitude, lng: _this.profile.longitude });
-            _this.map.addEventListener("click").subscribe(function (data) {
-                console.log(data);
-                _this.addMarker(data);
-            });
-        });
-    };
-    UpdateRadiusModal.prototype.addMarker = function (data) {
-        //set profile lat and lng
-        this.profile.latitude = data.lat;
-        this.profile.longitude = data.lng;
-        //remove other markers
-        this.map.clear();
-        this.map.addMarker({
-            icon: '#79b402',
-            animation: 'DROP',
-            position: {
-                lat: this.profile.latitude,
-                lng: this.profile.longitude
-            }
-        });
-        //add this marker
-        //add radius circle
-        this.map.addCircle({
-            center: { lat: this.profile.latitude, lng: this.profile.longitude },
-            radius: this.profile.radius * 100,
-            strokeColor: '#79b402',
-            strokeOpacity: 0.8,
-            strokeWidth: 5,
-            fillColor: '#79b402',
-            fillOpacity: 0.35,
-        });
-    };
     UpdateRadiusModal.prototype.updateRadius = function () {
-        if (!this.map) {
-            return;
-        }
-        this.addMarker({ lat: this.profile.latitude, lng: this.profile.longitude });
+        this.mapComponent.updateRadius(this.profile.radius, this.profile.latitude, this.profile.longitude);
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__components_google_maps_google_maps__["a" /* GoogleMapsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]) === "function" && _a || Object)
+    ], UpdateRadiusModal.prototype, "mapComponent", void 0);
     UpdateRadiusModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'update-radius',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\update-radius\update-radius.html"*/'<ion-header>\n    <ion-toolbar color="secondary">\n        <ion-title>\n            Change Location & Radius\n        </ion-title>\n        <ion-buttons start>\n\n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n  \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>\n        \n    <ion-list-header class="radius-header">\n        Radius Serviced (km)\n        <ion-badge item-end>{{profile.radius}}</ion-badge>\n    </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="100" step="10" [(ngModel)]="profile.radius" pin="true" (ionChange)="updateRadius()">\n                \n                <ion-icon small range-left name="locate"></ion-icon>\n                <ion-icon range-right name="locate"></ion-icon>\n            </ion-range>\n         </ion-item>   \n        \n        \n        <div id=\'map\'></div>\n        \n    </ion-list> \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color="secondary" (click)="update()">Update</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\update-radius\update-radius.html"*/
+            selector: 'update-radius',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\update-radius\update-radius.html"*/'<ion-header>\n    <ion-toolbar color="secondary">\n        <ion-title>\n            Change Location & Radius\n        </ion-title>\n        <ion-buttons start>\n\n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n  \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>\n        \n    <ion-list-header class="radius-header">\n        Radius Serviced (km)\n        <ion-badge item-end>{{profile.radius}}km</ion-badge>\n    </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="100" step="10" [(ngModel)]="profile.radius" pin="true" (ionChange)="updateRadius()">\n                \n                <ion-icon small range-left name="locate"></ion-icon>\n                <ion-icon range-right name="locate"></ion-icon>\n            </ion-range>\n         </ion-item>   \n        \n        \n        <google-maps apiKey="AIzaSyDkvDS9y2q27OyDfnrJdMk0xh_flzbAzhc" latitude="{{profile.latitude}}" longitude="{{profile.longitude}}" radius="{{profile.radius}}"></google-maps>\n        \n        \n    </ion-list> \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color="secondary" (click)="update()">Update</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\update-radius\update-radius.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _k || Object])
     ], UpdateRadiusModal);
     return UpdateRadiusModal;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=update-radius.js.map
@@ -1662,11 +1777,11 @@ var UpdateRadiusModal = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopoverPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_job_contractor_job__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_job_customer_job__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_profile_profile__ = __webpack_require__(48);
@@ -1756,7 +1871,7 @@ var PopoverPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'notifications-popover',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/'<ion-list class="tools-popover">\n    <ion-item class=\'empty-notifications\' *ngIf="notifications.length < 1">\n        <h2>No Notifications</h2>\n    </ion-item>\n    <button ion-item *ngFor="let notification of notifications" (click)="viewNotification(i, notification)" [ngClass]="{\'unread\':!notification.read}">\n            {{notification.title}}\n    </button>\n</ion-list>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], PopoverPage);
     return PopoverPage;
 }());
@@ -1784,43 +1899,43 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(424);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_signup_signup__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_signup_signup__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_profile_profile__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_customer_jobs_customer_jobs__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_customer_job_customer_job__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contractor_job_contractor_job__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_settings_settings__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modals_filters_filters__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_create_job_create_job__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modals_edit_job_edit_job__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modals_filters_filters__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_create_job_create_job__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modals_edit_job_edit_job__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__modals_find_address_find_address__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__modals_create_review_create_review__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__modals_edit_profile_edit_profile__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__modals_edit_profile_edit_profile__ = __webpack_require__(341);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__modals_update_radius_update_radius__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_onesignal__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_camera__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_file_transfer__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ionic2_google_places_autocomplete__ = __webpack_require__(434);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ionic2_google_places_autocomplete__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_native_geocoder__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_email_composer__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_notifications_notifications__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_notifications_notifications__ = __webpack_require__(438);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_notifications_popover__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_authentication_authentication__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_job_job__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_review_review__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_notification_notification__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_google_maps__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_components_module__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_authentication_authentication__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_profile_profile__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_job_job__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_review_review__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_notification_notification__ = __webpack_require__(65);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1892,6 +2007,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_31__components_components_module__["a" /* ComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
@@ -1921,13 +2037,12 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_36__ionic_native_google_maps__["a" /* GoogleMaps */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_31__providers_authentication_authentication__["a" /* AuthenticationProvider */],
-                __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__["a" /* ProfileProvider */],
-                __WEBPACK_IMPORTED_MODULE_33__providers_job_job__["a" /* JobProvider */],
-                __WEBPACK_IMPORTED_MODULE_34__providers_review_review__["a" /* ReviewProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__providers_notification_notification__["a" /* NotificationProvider */],
+                __WEBPACK_IMPORTED_MODULE_32__providers_authentication_authentication__["a" /* AuthenticationProvider */],
+                __WEBPACK_IMPORTED_MODULE_33__providers_profile_profile__["a" /* ProfileProvider */],
+                __WEBPACK_IMPORTED_MODULE_34__providers_job_job__["a" /* JobProvider */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_review_review__["a" /* ReviewProvider */],
+                __WEBPACK_IMPORTED_MODULE_36__providers_notification_notification__["a" /* NotificationProvider */],
                 __WEBPACK_IMPORTED_MODULE_25__ionic_native_file_transfer__["a" /* FileTransfer */],
                 __WEBPACK_IMPORTED_MODULE_24__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_23__ionic_native_onesignal__["a" /* OneSignal */],
@@ -1950,8 +2065,8 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2044,9 +2159,9 @@ var ProfileProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(63);
@@ -2055,7 +2170,7 @@ var ProfileProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_customer_job_customer_job__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_settings_settings__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__ = __webpack_require__(40);
@@ -2125,6 +2240,13 @@ var MyApp = /** @class */ (function () {
         this.events.subscribe("user:retreived", function (user) {
             console.log(user);
             _this.user = user;
+            if (user.permission === "contractor") {
+                _this.pages[0].component = __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */];
+                _this.statusBar.backgroundColorByHexString("#3c5a01");
+            }
+        });
+        this.events.subscribe("user:loggedin", function () {
+            _this.savePushId();
         });
     }
     MyApp.prototype.savePushId = function () {
@@ -2144,7 +2266,12 @@ var MyApp = /** @class */ (function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             if (_this.platform.is("android")) {
-                _this.statusBar.backgroundColorByHexString("#3c5a01");
+                if (_this.user.permission === "contractor") {
+                    _this.statusBar.backgroundColorByHexString("#3c5a01");
+                }
+                else {
+                    _this.statusBar.backgroundColorByHexString("#5697ab");
+                }
                 _this.statusBar.styleLightContent();
             }
             else {
@@ -2195,13 +2322,13 @@ var MyApp = /** @class */ (function () {
         this.nav.popToRoot();
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header [ngClass]="{contractor:user.permission === \'contractor\'}">\n        <div class="user-dp">\n            <img [src]="user.profile.avatar"/>\n        </div>\n        <div class="username">\n            Hello, {{user.profile.first_name ? user.profile.first_name : " user"}}!\n        </div>      \n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>       \n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_14__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__["a" /* ProfileProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_14__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__["a" /* ProfileProvider */]])
     ], MyApp);
     return MyApp;
 }());
@@ -2214,252 +2341,252 @@ var MyApp = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 219,
-	"./af.js": 219,
-	"./ar": 220,
-	"./ar-dz": 221,
-	"./ar-dz.js": 221,
-	"./ar-kw": 222,
-	"./ar-kw.js": 222,
-	"./ar-ly": 223,
-	"./ar-ly.js": 223,
-	"./ar-ma": 224,
-	"./ar-ma.js": 224,
-	"./ar-sa": 225,
-	"./ar-sa.js": 225,
-	"./ar-tn": 226,
-	"./ar-tn.js": 226,
-	"./ar.js": 220,
-	"./az": 227,
-	"./az.js": 227,
-	"./be": 228,
-	"./be.js": 228,
-	"./bg": 229,
-	"./bg.js": 229,
-	"./bm": 230,
-	"./bm.js": 230,
-	"./bn": 231,
-	"./bn.js": 231,
-	"./bo": 232,
-	"./bo.js": 232,
-	"./br": 233,
-	"./br.js": 233,
-	"./bs": 234,
-	"./bs.js": 234,
-	"./ca": 235,
-	"./ca.js": 235,
-	"./cs": 236,
-	"./cs.js": 236,
-	"./cv": 237,
-	"./cv.js": 237,
-	"./cy": 238,
-	"./cy.js": 238,
-	"./da": 239,
-	"./da.js": 239,
-	"./de": 240,
-	"./de-at": 241,
-	"./de-at.js": 241,
-	"./de-ch": 242,
-	"./de-ch.js": 242,
-	"./de.js": 240,
-	"./dv": 243,
-	"./dv.js": 243,
-	"./el": 244,
-	"./el.js": 244,
-	"./en-au": 245,
-	"./en-au.js": 245,
-	"./en-ca": 246,
-	"./en-ca.js": 246,
-	"./en-gb": 247,
-	"./en-gb.js": 247,
-	"./en-ie": 248,
-	"./en-ie.js": 248,
-	"./en-il": 249,
-	"./en-il.js": 249,
-	"./en-nz": 250,
-	"./en-nz.js": 250,
-	"./eo": 251,
-	"./eo.js": 251,
-	"./es": 252,
-	"./es-do": 253,
-	"./es-do.js": 253,
-	"./es-us": 254,
-	"./es-us.js": 254,
-	"./es.js": 252,
-	"./et": 255,
-	"./et.js": 255,
-	"./eu": 256,
-	"./eu.js": 256,
-	"./fa": 257,
-	"./fa.js": 257,
-	"./fi": 258,
-	"./fi.js": 258,
-	"./fo": 259,
-	"./fo.js": 259,
-	"./fr": 260,
-	"./fr-ca": 261,
-	"./fr-ca.js": 261,
-	"./fr-ch": 262,
-	"./fr-ch.js": 262,
-	"./fr.js": 260,
-	"./fy": 263,
-	"./fy.js": 263,
-	"./gd": 264,
-	"./gd.js": 264,
-	"./gl": 265,
-	"./gl.js": 265,
-	"./gom-latn": 266,
-	"./gom-latn.js": 266,
-	"./gu": 267,
-	"./gu.js": 267,
-	"./he": 268,
-	"./he.js": 268,
-	"./hi": 269,
-	"./hi.js": 269,
-	"./hr": 270,
-	"./hr.js": 270,
-	"./hu": 271,
-	"./hu.js": 271,
-	"./hy-am": 272,
-	"./hy-am.js": 272,
-	"./id": 273,
-	"./id.js": 273,
-	"./is": 274,
-	"./is.js": 274,
-	"./it": 275,
-	"./it.js": 275,
-	"./ja": 276,
-	"./ja.js": 276,
-	"./jv": 277,
-	"./jv.js": 277,
-	"./ka": 278,
-	"./ka.js": 278,
-	"./kk": 279,
-	"./kk.js": 279,
-	"./km": 280,
-	"./km.js": 280,
-	"./kn": 281,
-	"./kn.js": 281,
-	"./ko": 282,
-	"./ko.js": 282,
-	"./ky": 283,
-	"./ky.js": 283,
-	"./lb": 284,
-	"./lb.js": 284,
-	"./lo": 285,
-	"./lo.js": 285,
-	"./lt": 286,
-	"./lt.js": 286,
-	"./lv": 287,
-	"./lv.js": 287,
-	"./me": 288,
-	"./me.js": 288,
-	"./mi": 289,
-	"./mi.js": 289,
-	"./mk": 290,
-	"./mk.js": 290,
-	"./ml": 291,
-	"./ml.js": 291,
-	"./mn": 292,
-	"./mn.js": 292,
-	"./mr": 293,
-	"./mr.js": 293,
-	"./ms": 294,
-	"./ms-my": 295,
-	"./ms-my.js": 295,
-	"./ms.js": 294,
-	"./mt": 296,
-	"./mt.js": 296,
-	"./my": 297,
-	"./my.js": 297,
-	"./nb": 298,
-	"./nb.js": 298,
-	"./ne": 299,
-	"./ne.js": 299,
-	"./nl": 300,
-	"./nl-be": 301,
-	"./nl-be.js": 301,
-	"./nl.js": 300,
-	"./nn": 302,
-	"./nn.js": 302,
-	"./pa-in": 303,
-	"./pa-in.js": 303,
-	"./pl": 304,
-	"./pl.js": 304,
-	"./pt": 305,
-	"./pt-br": 306,
-	"./pt-br.js": 306,
-	"./pt.js": 305,
-	"./ro": 307,
-	"./ro.js": 307,
-	"./ru": 308,
-	"./ru.js": 308,
-	"./sd": 309,
-	"./sd.js": 309,
-	"./se": 310,
-	"./se.js": 310,
-	"./si": 311,
-	"./si.js": 311,
-	"./sk": 312,
-	"./sk.js": 312,
-	"./sl": 313,
-	"./sl.js": 313,
-	"./sq": 314,
-	"./sq.js": 314,
-	"./sr": 315,
-	"./sr-cyrl": 316,
-	"./sr-cyrl.js": 316,
-	"./sr.js": 315,
-	"./ss": 317,
-	"./ss.js": 317,
-	"./sv": 318,
-	"./sv.js": 318,
-	"./sw": 319,
-	"./sw.js": 319,
-	"./ta": 320,
-	"./ta.js": 320,
-	"./te": 321,
-	"./te.js": 321,
-	"./tet": 322,
-	"./tet.js": 322,
-	"./tg": 323,
-	"./tg.js": 323,
-	"./th": 324,
-	"./th.js": 324,
-	"./tl-ph": 325,
-	"./tl-ph.js": 325,
-	"./tlh": 326,
-	"./tlh.js": 326,
-	"./tr": 327,
-	"./tr.js": 327,
-	"./tzl": 328,
-	"./tzl.js": 328,
-	"./tzm": 329,
-	"./tzm-latn": 330,
-	"./tzm-latn.js": 330,
-	"./tzm.js": 329,
-	"./ug-cn": 331,
-	"./ug-cn.js": 331,
-	"./uk": 332,
-	"./uk.js": 332,
-	"./ur": 333,
-	"./ur.js": 333,
-	"./uz": 334,
-	"./uz-latn": 335,
-	"./uz-latn.js": 335,
-	"./uz.js": 334,
-	"./vi": 336,
-	"./vi.js": 336,
-	"./x-pseudo": 337,
-	"./x-pseudo.js": 337,
-	"./yo": 338,
-	"./yo.js": 338,
-	"./zh-cn": 339,
-	"./zh-cn.js": 339,
-	"./zh-hk": 340,
-	"./zh-hk.js": 340,
-	"./zh-tw": 341,
-	"./zh-tw.js": 341
+	"./af": 218,
+	"./af.js": 218,
+	"./ar": 219,
+	"./ar-dz": 220,
+	"./ar-dz.js": 220,
+	"./ar-kw": 221,
+	"./ar-kw.js": 221,
+	"./ar-ly": 222,
+	"./ar-ly.js": 222,
+	"./ar-ma": 223,
+	"./ar-ma.js": 223,
+	"./ar-sa": 224,
+	"./ar-sa.js": 224,
+	"./ar-tn": 225,
+	"./ar-tn.js": 225,
+	"./ar.js": 219,
+	"./az": 226,
+	"./az.js": 226,
+	"./be": 227,
+	"./be.js": 227,
+	"./bg": 228,
+	"./bg.js": 228,
+	"./bm": 229,
+	"./bm.js": 229,
+	"./bn": 230,
+	"./bn.js": 230,
+	"./bo": 231,
+	"./bo.js": 231,
+	"./br": 232,
+	"./br.js": 232,
+	"./bs": 233,
+	"./bs.js": 233,
+	"./ca": 234,
+	"./ca.js": 234,
+	"./cs": 235,
+	"./cs.js": 235,
+	"./cv": 236,
+	"./cv.js": 236,
+	"./cy": 237,
+	"./cy.js": 237,
+	"./da": 238,
+	"./da.js": 238,
+	"./de": 239,
+	"./de-at": 240,
+	"./de-at.js": 240,
+	"./de-ch": 241,
+	"./de-ch.js": 241,
+	"./de.js": 239,
+	"./dv": 242,
+	"./dv.js": 242,
+	"./el": 243,
+	"./el.js": 243,
+	"./en-au": 244,
+	"./en-au.js": 244,
+	"./en-ca": 245,
+	"./en-ca.js": 245,
+	"./en-gb": 246,
+	"./en-gb.js": 246,
+	"./en-ie": 247,
+	"./en-ie.js": 247,
+	"./en-il": 248,
+	"./en-il.js": 248,
+	"./en-nz": 249,
+	"./en-nz.js": 249,
+	"./eo": 250,
+	"./eo.js": 250,
+	"./es": 251,
+	"./es-do": 252,
+	"./es-do.js": 252,
+	"./es-us": 253,
+	"./es-us.js": 253,
+	"./es.js": 251,
+	"./et": 254,
+	"./et.js": 254,
+	"./eu": 255,
+	"./eu.js": 255,
+	"./fa": 256,
+	"./fa.js": 256,
+	"./fi": 257,
+	"./fi.js": 257,
+	"./fo": 258,
+	"./fo.js": 258,
+	"./fr": 259,
+	"./fr-ca": 260,
+	"./fr-ca.js": 260,
+	"./fr-ch": 261,
+	"./fr-ch.js": 261,
+	"./fr.js": 259,
+	"./fy": 262,
+	"./fy.js": 262,
+	"./gd": 263,
+	"./gd.js": 263,
+	"./gl": 264,
+	"./gl.js": 264,
+	"./gom-latn": 265,
+	"./gom-latn.js": 265,
+	"./gu": 266,
+	"./gu.js": 266,
+	"./he": 267,
+	"./he.js": 267,
+	"./hi": 268,
+	"./hi.js": 268,
+	"./hr": 269,
+	"./hr.js": 269,
+	"./hu": 270,
+	"./hu.js": 270,
+	"./hy-am": 271,
+	"./hy-am.js": 271,
+	"./id": 272,
+	"./id.js": 272,
+	"./is": 273,
+	"./is.js": 273,
+	"./it": 274,
+	"./it.js": 274,
+	"./ja": 275,
+	"./ja.js": 275,
+	"./jv": 276,
+	"./jv.js": 276,
+	"./ka": 277,
+	"./ka.js": 277,
+	"./kk": 278,
+	"./kk.js": 278,
+	"./km": 279,
+	"./km.js": 279,
+	"./kn": 280,
+	"./kn.js": 280,
+	"./ko": 281,
+	"./ko.js": 281,
+	"./ky": 282,
+	"./ky.js": 282,
+	"./lb": 283,
+	"./lb.js": 283,
+	"./lo": 284,
+	"./lo.js": 284,
+	"./lt": 285,
+	"./lt.js": 285,
+	"./lv": 286,
+	"./lv.js": 286,
+	"./me": 287,
+	"./me.js": 287,
+	"./mi": 288,
+	"./mi.js": 288,
+	"./mk": 289,
+	"./mk.js": 289,
+	"./ml": 290,
+	"./ml.js": 290,
+	"./mn": 291,
+	"./mn.js": 291,
+	"./mr": 292,
+	"./mr.js": 292,
+	"./ms": 293,
+	"./ms-my": 294,
+	"./ms-my.js": 294,
+	"./ms.js": 293,
+	"./mt": 295,
+	"./mt.js": 295,
+	"./my": 296,
+	"./my.js": 296,
+	"./nb": 297,
+	"./nb.js": 297,
+	"./ne": 298,
+	"./ne.js": 298,
+	"./nl": 299,
+	"./nl-be": 300,
+	"./nl-be.js": 300,
+	"./nl.js": 299,
+	"./nn": 301,
+	"./nn.js": 301,
+	"./pa-in": 302,
+	"./pa-in.js": 302,
+	"./pl": 303,
+	"./pl.js": 303,
+	"./pt": 304,
+	"./pt-br": 305,
+	"./pt-br.js": 305,
+	"./pt.js": 304,
+	"./ro": 306,
+	"./ro.js": 306,
+	"./ru": 307,
+	"./ru.js": 307,
+	"./sd": 308,
+	"./sd.js": 308,
+	"./se": 309,
+	"./se.js": 309,
+	"./si": 310,
+	"./si.js": 310,
+	"./sk": 311,
+	"./sk.js": 311,
+	"./sl": 312,
+	"./sl.js": 312,
+	"./sq": 313,
+	"./sq.js": 313,
+	"./sr": 314,
+	"./sr-cyrl": 315,
+	"./sr-cyrl.js": 315,
+	"./sr.js": 314,
+	"./ss": 316,
+	"./ss.js": 316,
+	"./sv": 317,
+	"./sv.js": 317,
+	"./sw": 318,
+	"./sw.js": 318,
+	"./ta": 319,
+	"./ta.js": 319,
+	"./te": 320,
+	"./te.js": 320,
+	"./tet": 321,
+	"./tet.js": 321,
+	"./tg": 322,
+	"./tg.js": 322,
+	"./th": 323,
+	"./th.js": 323,
+	"./tl-ph": 324,
+	"./tl-ph.js": 324,
+	"./tlh": 325,
+	"./tlh.js": 325,
+	"./tr": 326,
+	"./tr.js": 326,
+	"./tzl": 327,
+	"./tzl.js": 327,
+	"./tzm": 328,
+	"./tzm-latn": 329,
+	"./tzm-latn.js": 329,
+	"./tzm.js": 328,
+	"./ug-cn": 330,
+	"./ug-cn.js": 330,
+	"./uk": 331,
+	"./uk.js": 331,
+	"./ur": 332,
+	"./ur.js": 332,
+	"./uz": 333,
+	"./uz-latn": 334,
+	"./uz-latn.js": 334,
+	"./uz.js": 333,
+	"./vi": 335,
+	"./vi.js": 335,
+	"./x-pseudo": 336,
+	"./x-pseudo.js": 336,
+	"./yo": 337,
+	"./yo.js": 337,
+	"./zh-cn": 338,
+	"./zh-cn.js": 338,
+	"./zh-hk": 339,
+	"./zh-hk.js": 339,
+	"./zh-tw": 340,
+	"./zh-tw.js": 340
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -2479,13 +2606,13 @@ webpackContext.id = 433;
 
 /***/ }),
 
-/***/ 437:
+/***/ 438:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationsDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications_popover__ = __webpack_require__(352);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2522,12 +2649,44 @@ var NotificationsDirective = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({
             selector: '[notifications]'
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* PopoverController */]])
     ], NotificationsDirective);
     return NotificationsDirective;
 }());
 
 //# sourceMappingURL=notifications.js.map
+
+/***/ }),
+
+/***/ 439:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__google_maps_google_maps__ = __webpack_require__(345);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__google_maps_google_maps__["a" /* GoogleMapsComponent */]],
+            imports: [],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__google_maps_google_maps__["a" /* GoogleMapsComponent */]]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
 
 /***/ }),
 
@@ -2537,13 +2696,13 @@ var NotificationsDirective = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_review_review__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_edit_profile_edit_profile__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_edit_profile_edit_profile__ = __webpack_require__(341);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2622,9 +2781,9 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button> \n      \n      \n        <ion-title>{{!profile.first_name && !profile.last_name ? "Profile" : ""}}{{profile.first_name}} {{profile.last_name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n<ion-content>\n    \n    <ion-segment [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="profile">\n            Profile\n        </ion-segment-button>\n      <ion-segment-button value="reviews">\n            Reviews <ion-badge *ngIf="profile.reviews.length > 0" [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">{{profile.reviews.length}}</ion-badge>\n      </ion-segment-button>       \n    </ion-segment>        \n    \n    \n    <ion-list *ngIf="properties.activeTab === \'profile\'" class=\'profile-details\'>\n\n        <ion-item *ngIf="profile.first_name || profile.last_name">\n            <h2>Name</h2>\n            <p>{{profile.first_name}} {{profile.last_name}}</p>\n        </ion-item>\n        \n        <ion-item *ngIf="profile.dob">\n            <h2>Date Of Birth</h2>\n            <p>{{formatDate(profile.dob)}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.gender">\n            <h2>Gender</h2>\n            <p>{{profile.gender}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.phone">\n            <h2>Phone</h2>\n            <p><a (click)="openURL(\'tel:\' + profile.phone)">{{profile.phone}}</a></p>\n        </ion-item>         \n\n\n        <ion-item *ngIf="profile.public_email">\n            <h2>Email</h2>\n            <p><a (click)="openURL(\'mailto:\' + profile.email)">{{profile.public_email}}</a></p>\n        </ion-item>  \n        \n        <ion-item *ngIf="profile.website">\n            <h2>Website</h2>\n            <p><a (click)="openURL(profile.website)">{{profile.website}}</a></p>\n        </ion-item>    \n        \n        <ion-item *ngIf="profile.business_hours">\n            <h2>Business Hours</h2>\n            <p>{{profile.business_hours}}</p>\n        </ion-item>   \n        \n        <ion-item *ngIf="profile.biography" class="item-long-text">\n            <h2>Biography</h2>\n            <p>{{profile.biography}}</p>\n        </ion-item>          \n        \n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'reviews\'" class=\'profile-reviews\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="profile.reviews.length < 1">\n            <ion-icon name="star"></ion-icon>\n            <h3>No reviews</h3>\n        </div>          \n\n        <ion-item *ngFor="let review of profile.reviews" class="item-long-text">\n            \n            <ion-avatar item-start>\n              <img [src]="review.profile.avatar" />\n            </ion-avatar>            \n            <h2 class="star-ratings"><ion-icon name="star" *ngFor="let dummy of \' \'.repeat(review.rating).split(\'\'), let x = index"></ion-icon></h2>\n            <p>{{review.comment}}</p>\n        </ion-item>\n        \n        \n    </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer *ngIf="profile.isMyProfile" class=\'filter-footer\'>\n    <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="openEditProfile()">Edit Profile</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button> \n      \n      \n        <ion-title>{{!profile.first_name && !profile.last_name ? "Profile" : ""}}{{profile.first_name}} {{profile.last_name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n<ion-content>\n    \n    <ion-segment [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="profile">\n            Profile\n        </ion-segment-button>\n      <ion-segment-button value="reviews">\n            Reviews <ion-badge *ngIf="profile.reviews.length > 0" [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">{{profile.reviews.length}}</ion-badge>\n      </ion-segment-button>       \n    </ion-segment>        \n    \n    \n    <ion-list *ngIf="properties.activeTab === \'profile\'" class=\'profile-details\'>\n\n        <ion-item *ngIf="profile.first_name || profile.last_name">\n            <h2>Name</h2>\n            <p>{{profile.first_name}} {{profile.last_name}}</p>\n        </ion-item>\n        \n        <ion-item *ngIf="profile.dob">\n            <h2>Date Of Birth</h2>\n            <p>{{formatDate(profile.dob)}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.gender">\n            <h2>Gender</h2>\n            <p>{{profile.gender}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.phone">\n            <h2>Phone</h2>\n            <p><a (click)="openURL(\'tel:\' + profile.phone)">{{profile.phone}}</a></p>\n        </ion-item>         \n\n\n        <ion-item *ngIf="profile.public_email">\n            <h2>Email</h2>\n            <p><a (click)="openURL(\'mailto:\' + profile.public_email)">{{profile.public_email}}</a></p>\n        </ion-item>  \n        \n        <ion-item *ngIf="profile.website">\n            <h2>Website</h2>\n            <p><a (click)="openURL(profile.website)">{{profile.website}}</a></p>\n        </ion-item>    \n        \n        <ion-item *ngIf="profile.business_hours">\n            <h2>Business Hours</h2>\n            <p>{{profile.business_hours}}</p>\n        </ion-item>   \n        \n        <ion-item *ngIf="profile.biography" class="item-long-text">\n            <h2>Biography</h2>\n            <p>{{profile.biography}}</p>\n        </ion-item>          \n        \n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'reviews\'" class=\'profile-reviews\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="profile.reviews.length < 1">\n            <ion-icon name="star"></ion-icon>\n            <h3>No reviews</h3>\n        </div>          \n\n        <ion-item *ngFor="let review of profile.reviews" class="item-long-text">\n            \n            <ion-avatar item-start>\n              <img [src]="review.profile.avatar" />\n            </ion-avatar>            \n            <h2 class="star-ratings"><ion-icon name="star" *ngFor="let dummy of \' \'.repeat(review.rating).split(\'\'), let x = index"></ion-icon></h2>\n            <p>{{review.comment}}</p>\n        </ion-item>\n        \n        \n    </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer *ngIf="profile.isMyProfile" class=\'filter-footer\'>\n    <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="openEditProfile()">Edit Profile</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
     ], ProfilePage);
     return ProfilePage;
 }());
@@ -2640,8 +2799,8 @@ var ProfilePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2752,9 +2911,9 @@ var ReviewProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2786,7 +2945,9 @@ var AuthenticationProvider = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             console.log(data);
             _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_app_settings__["a" /* AppSettings */].apiUrl + "/auth/login", data).subscribe(function (res) {
-                _this.storage.set("token", res["token"]);
+                _this.storage.set("token", res["token"]).then(function () {
+                    _this.events.publish("user:loggedin");
+                });
                 resolve(res["token"]);
             }, function (e) {
                 reject(e);
@@ -2797,7 +2958,9 @@ var AuthenticationProvider = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_app_settings__["a" /* AppSettings */].apiUrl + "/auth/signup", data).subscribe(function (res) {
-                _this.storage.set("token", res["token"]);
+                _this.storage.set("token", res["token"]).then(function () {
+                    _this.events.publish("user:loggedin");
+                });
                 resolve(res["token"]);
             }, function (e) {
                 reject(e);
@@ -2892,16 +3055,16 @@ var AuthenticationProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContractorJobsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_job_contractor_job__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_filters_filters__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_filters_filters__ = __webpack_require__(342);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_review_review__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3068,7 +3231,7 @@ var ContractorJobsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-contractor-jobs',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-jobs\contractor-jobs.html"*/'<!--\n  Generated template for the ContractorJobsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="secondary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>      \n\n        <ion-title>Jobs</ion-title>\n        \n        <ion-buttons end>\n            <button ion-button icon-only notifications tappable>\n                <ion-icon name="notifications" ></ion-icon>\n                <ion-badge color="danger" *ngIf="notificationCount > 0">{{notificationCount}}</ion-badge>\n            </button>\n        </ion-buttons>        \n        \n        \n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    \n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>     \n\n    \n    <ion-segment color="secondary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="available">\n            Available\n        </ion-segment-button>\n      <ion-segment-button value="current">\n            Current <ion-badge *ngIf="currentJobs.length > 0" color="danger">{{currentJobs.length}}</ion-badge>\n      </ion-segment-button>\n      <ion-segment-button value="completed">\n            Completed\n      </ion-segment-button>        \n    </ion-segment>\n\n    <div class="jobs-loading" *ngIf="properties.loading">\n        <ion-spinner></ion-spinner>\n    </div>\n\n    <ion-list *ngIf="properties.activeTab === \'available\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="availableJobs.length < 1 && !properties.loading">\n            <ion-icon name="locate"></ion-icon>\n            <h3>No available jobs in your area</h3>\n        </div>\n        <ion-item (click)="openJob($event,job)" *ngFor="let job of availableJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                <ion-badge *ngIf="job.applied" color="secondary">Applied</ion-badge>\n                {{job.title}}\n            </h2>\n            <p>Listed {{formatTime2(job.created_at)}}</p>\n            <div class=\'listing-price\' item-end>${{job.price}}</div>\n        </ion-item>    \n\n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'current\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="currentJobs.length < 1 && !properties.loading">\n            <ion-icon name="time"></ion-icon>\n            <h3>No jobs currently in progress</h3>\n        </div>        \n        <ion-item (click)="openJob($event,job)" *ngFor="let job of currentJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                {{job.title}}\n            </h2>\n            <p>To be done {{formatTime(job.created_at)}}</p>\n            <div class=\'listing-price\' item-end>${{job.price}}</div>\n        </ion-item>    \n\n        \n    </ion-list>    \n    \n    <ion-list *ngIf="properties.activeTab === \'completed\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="completedJobs.length < 1 && !properties.loading">\n            <ion-icon name="checkbox"></ion-icon>\n            <h3>No jobs completed</h3>\n        </div>            \n        <ion-item (click)="openJob($event,job)" *ngFor="let job of completedJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                {{job.title}}\n            </h2>\n            <p>Completed {{formatTime2(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="createReview($event, job)" *ngIf="requiresReview(job)" color="danger">Write Review</button>\n            <button ion-button clear item-end (click)="openJob($event, job)" *ngIf="!requiresReview(job)">View</button>\n        </ion-item>    \n\n        \n    </ion-list>       \n    \n    \n</ion-content>\n\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'secondary\' (click)="openFilters()"><ion-icon name="funnel"></ion-icon>&nbsp;&nbsp;Filters</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-jobs\contractor-jobs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_5__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_5__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */]])
     ], ContractorJobsPage);
     return ContractorJobsPage;
 }());
@@ -3083,12 +3246,12 @@ var ContractorJobsPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContractorJobPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_profile__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3215,7 +3378,7 @@ var ContractorJobPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-contractor-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-job\contractor-job.html"*/'<!--\n  Generated template for the JobPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="secondary">\n    <ion-title>{{job.title ? job.title : "Job"}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n   \n    \n    <ion-list class=\'job-details\'>\n        \n        \n        <ion-item class="applied-section" *ngIf="hasApplied()">\n            <h2>You have applied for this job.</h2>\n            <p>The application status is currently {{getApplicationStatus()}}.</p>\n        </ion-item>\n\n        <ion-item>\n            <h2>Posted By</h2>\n            <p>{{job.profile.first_name}} {{job.profile.last_name}}</p>\n            <button ion-button clear item-end (click)="viewProfile()">View Profile</button>\n        </ion-item>        \n        \n        <ion-item>\n            <h2>Price</h2>\n            <p>${{job.price}}</p>\n        </ion-item>\n\n\n        <ion-item>\n            <h2>Location</h2>\n            <p *ngIf="job.status !== \'open\'">{{job.location}}</p>\n            <p *ngIf="job.status === \'open\'" class=\'hidden-location\'>You must be accepted for this job to view.</p>\n            <button *ngIf="job.status !== \'open\'" ion-button clear item-end (click)="viewDirections()">Directions</button>\n        </ion-item>        \n\n        <ion-item>\n            <h2>Preferred Date & Time</h2>\n            <p>{{formatTime(job.preferred_time)}}</p>\n        </ion-item>          \n        \n        <ion-item class="item-long-text">\n            <h2>Description</h2>\n            <p>{{job.description}}</p>\n        </ion-item>   \n\n\n        <ion-slides class="job-gallery" autoplay="5000" loop="true" pager="true" zoom="true" *ngIf="job.imagesArray && job.imagesArray.length > 0">\n            <ion-slide *ngFor="let image of job.imagesArray">\n                <img [src]="image" />\n            </ion-slide>\n        </ion-slides>\n\n        \n    </ion-list>   \n\n    \n    \n</ion-content>\n\n\n<ion-footer class=\'filter-footer\' *ngIf="job.status === \'open\' && !hasApplied()">\n    <button ion-button color=\'secondary\' (click)="apply()">Apply For Job</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-job\contractor-job.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
     ], ContractorJobPage);
     return ContractorJobPage;
 }());
@@ -3231,7 +3394,7 @@ var ContractorJobPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3334,8 +3497,8 @@ var NotificationProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateReviewModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3373,7 +3536,7 @@ var CreateReviewModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'create-review',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-review\create-review.html"*/'<ion-header>\n    <ion-toolbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <ion-title>\n            Write Review\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    \n    \n    <ion-list>      \n\n        \n        <ion-item class="item-long-text">\n            <p>You are reviewing {{profile.first_name}} {{profile.last_name}} for the job "{{job.title}}"</p>\n        </ion-item>   \n\n        <ion-list-header class="radius-header review-header">\n            Rating (1-5)\n            <ion-badge item-end>{{review.rating}}</ion-badge>\n        </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="5" step="1" [(ngModel)]="review.rating" pin="true" snap=\'true\'>\n\n                <ion-icon small range-left name="star" (click)="review.rating = 1"></ion-icon>\n                <ion-icon range-right name="star" (click)="review.rating = 5"></ion-icon>\n            </ion-range>\n        </ion-item>  \n\n        \n        <ion-item>\n            <ion-label floating>Comment (optional)</ion-label>\n            <ion-textarea [(ngModel)]="review.comment"></ion-textarea>\n        </ion-item>         \n\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="create()" [disabled]="!review.rating">Submit Review</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-review\create-review.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], CreateReviewModal);
     return CreateReviewModal;
 }());
@@ -3388,16 +3551,16 @@ var CreateReviewModal = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerJobsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_create_job_create_job__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_edit_job_edit_job__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_create_job_create_job__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_edit_job_edit_job__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__customer_job_customer_job__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_review_review__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__ = __webpack_require__(65);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3600,9 +3763,9 @@ var CustomerJobsPage = /** @class */ (function () {
     };
     CustomerJobsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-customer-jobs',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/'<!--\n  Generated template for the CustomerJobsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="primary">\n        \n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>         \n        \n        <ion-title>Jobs</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only notifications tappable>\n                <ion-icon name="notifications" ></ion-icon>\n                <ion-badge color="danger">3</ion-badge>\n            </button>\n        </ion-buttons>     \n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    \n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>    \n    \n    <ion-segment color="primary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="created">\n            My Jobs\n        </ion-segment-button>\n      <ion-segment-button value="completed">\n            Completed\n      </ion-segment-button>       \n    </ion-segment>\n\n    <div class="jobs-loading" *ngIf="properties.loading">\n        <ion-spinner></ion-spinner>\n    </div>\n    \n    \n\n    <ion-list *ngIf="properties.activeTab === \'created\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="openJobs.length < 1 && !properties.loading">\n            <ion-icon name="create"></ion-icon>\n            <h3>No created jobs</h3>\n        </div>               \n        \n        <ion-item *ngFor="let job of openJobs; let i = index" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                <ion-badge *ngIf="job.status === \'open\' && job.applications.length > 0" color="danger">{{job.applications.length}} Application<span *ngIf="job.applications.length !== 1">s</span></ion-badge>\n                <ion-badge *ngIf="job.status === \'inprogress\'" color="primary">In Progress</ion-badge>\n                {{job.title}}</h2>\n            <p>To be done {{formatTime(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="openEditJob($event, job, i)">Edit</button>\n        </ion-item>   \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'completed\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="completedJobs.length < 1 && !properties.loading">\n            <ion-icon name="checkbox"></ion-icon>\n            <h3>No completed jobs</h3>\n        </div>           \n        <ion-item *ngFor="let job of completedJobs" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>{{job.title}}</h2>\n            <p>Completed {{formatTime2(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="createReview($event, job)" *ngIf="requiresReview(job)" color="danger">Write Review</button>\n            <button ion-button clear item-end (click)="openJob($event, job)" *ngIf="!requiresReview(job)">View</button>\n        </ion-item>   \n    </ion-list>    \n\n</ion-content>\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'primary\' (click)="openCreateJob()"><ion-icon name="add"></ion-icon>&nbsp;&nbsp;Create New Job</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/,
+            selector: 'page-customer-jobs',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/'<!--\n  Generated template for the CustomerJobsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="primary">\n        \n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>         \n        \n        <ion-title>Jobs</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only notifications tappable>\n                <ion-icon name="notifications" ></ion-icon>\n                <ion-badge color="danger" *ngIf="notificationCount > 0">{{notificationCount}}</ion-badge>\n            </button>\n        </ion-buttons>         \n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    \n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>    \n    \n    <ion-segment color="primary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="created">\n            My Jobs\n        </ion-segment-button>\n      <ion-segment-button value="completed">\n            Completed\n      </ion-segment-button>       \n    </ion-segment>\n\n    <div class="jobs-loading" *ngIf="properties.loading">\n        <ion-spinner></ion-spinner>\n    </div>\n    \n    \n\n    <ion-list *ngIf="properties.activeTab === \'created\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="openJobs.length < 1 && !properties.loading">\n            <ion-icon name="create"></ion-icon>\n            <h3>No created jobs</h3>\n        </div>               \n        \n        <ion-item *ngFor="let job of openJobs; let i = index" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                <ion-badge *ngIf="job.status === \'open\' && job.applications.length > 0" color="danger">{{job.applications.length}} Application<span *ngIf="job.applications.length !== 1">s</span></ion-badge>\n                <ion-badge *ngIf="job.status === \'inprogress\'" color="primary">In Progress</ion-badge>\n                {{job.title}}</h2>\n            <p>To be done {{formatTime(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="openEditJob($event, job, i)">Edit</button>\n        </ion-item>   \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'completed\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="completedJobs.length < 1 && !properties.loading">\n            <ion-icon name="checkbox"></ion-icon>\n            <h3>No completed jobs</h3>\n        </div>           \n        <ion-item *ngFor="let job of completedJobs" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>{{job.title}}</h2>\n            <p>Completed {{formatTime2(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="createReview($event, job)" *ngIf="requiresReview(job)" color="danger">Write Review</button>\n            <button ion-button clear item-end (click)="openJob($event, job)" *ngIf="!requiresReview(job)">View</button>\n        </ion-item>   \n    </ion-list>    \n\n</ion-content>\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'primary\' (click)="openCreateJob()"><ion-icon name="add"></ion-icon>&nbsp;&nbsp;Create New Job</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_6__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__["a" /* NotificationProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_6__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__["a" /* NotificationProvider */]])
     ], CustomerJobsPage);
     return CustomerJobsPage;
 }());
@@ -3617,7 +3780,7 @@ var CustomerJobsPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerJobPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_job_job__ = __webpack_require__(34);
@@ -3819,7 +3982,7 @@ var CustomerJobPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-customer-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-job\customer-job.html"*/'<!--\n  Generated template for the JobPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-title>{{job.title ? job.title : "Job"}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n    <ion-segment color="primary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="details">\n            Details\n        </ion-segment-button>\n      <ion-segment-button value="applications">\n            Applications <ion-badge *ngIf="job.applications.length > 0" color="danger">{{job.applications.length}}</ion-badge>\n      </ion-segment-button>       \n    </ion-segment>    \n    \n    <ion-list *ngIf="properties.activeTab === \'details\'" class=\'job-details\'>\n\n        <ion-item>\n            <h2>Price</h2>\n            <p>${{job.price}}</p>\n        </ion-item>\n\n\n        <ion-item>\n            <h2>Location</h2>\n            <p>{{job.location}}</p>\n        </ion-item>        \n\n        <ion-item>\n            <h2>Preferred Date & Time</h2>\n            <p>{{formatTime(job.preferred_time)}}</p>\n        </ion-item>          \n        \n        <ion-item class="item-long-text">\n            <h2>Description</h2>\n            <p>{{job.description}}</p>\n        </ion-item>   \n\n\n        <ion-slides class="job-gallery" autoplay="5000" loop="true" pager="true" zoom="true" *ngIf="job.imagesArray && job.imagesArray.length > 0">\n            <ion-slide *ngFor="let image of job.imagesArray">\n                <img [src]="image" />\n            </ion-slide>\n        </ion-slides>\n\n        \n    </ion-list>   \n    \n    \n    \n    <ion-list *ngIf="properties.activeTab === \'applications\'" class=\'job-applications\'>\n        <ion-item (click)="viewProfile(applicant)" *ngFor="let applicant of job.applications">\n            <ion-avatar item-start>\n              <img [src]="applicant.profile.avatar" />\n            </ion-avatar>\n            {{applicant.profile.first_name}} {{applicant.profile.last_name}}\n            <button ion-button outline item-end (click)="acceptApplicant($event, applicant)" *ngIf="job.status === \'open\' && applicant.status === \'pending\'">Accept</button>\n            <button ion-button outline item-end color="danger" (click)="declineApplicant($event, applicant)" *ngIf="job.status === \'open\' && applicant.status === \'pending\'">Decline</button>\n            <div item-end class=\'applicant-declined\' *ngIf="applicant.status === \'declined\'">Declined</div>\n            <div item-end class=\'applicant-accepted\' *ngIf="applicant.status === \'accepted\'">Accepted</div>\n        </ion-item>        \n    </ion-list>\n    \n    \n</ion-content>\n\n\n<ion-footer class=\'filter-footer\' *ngIf="job.status !== \'completed\'">\n    <button ion-button color=\'primary\' (click)="completeJob()">Mark Job As Completed</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-job\customer-job.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
     ], CustomerJobPage);
     return CustomerJobPage;
 }());

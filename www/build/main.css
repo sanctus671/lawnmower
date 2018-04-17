@@ -25708,6 +25708,13 @@ ion-menu ion-header.contractor {
   margin-left: 16px;
 }
 
+google-maps {
+  display: block;
+  width: 100%;
+  height: 300px;
+  margin-top: 30px;
+}
+
 .notifications-popover .popover-content {
   width: 200px;
 }
@@ -26149,4 +26156,9 @@ page-signup .list-header {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   padding-right: 10px;
+}
+
+.footer .button-full {
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
