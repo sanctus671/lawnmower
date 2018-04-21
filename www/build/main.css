@@ -25902,6 +25902,13 @@ google-maps {
   font-size: 18px;
 }
 
+ion-segment.segment-ios {
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+}
+
 .login-top-section {
   text-align: center;
   position: relative;
