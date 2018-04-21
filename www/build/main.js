@@ -1718,12 +1718,17 @@ var PopoverPage = /** @class */ (function () {
             }
         });
         this.events.subscribe("notification:received", function (notification) {
+            alert("in notification received event");
             if (_this.notifications.length > 5) {
                 _this.notifications.pop();
             }
+            alert("marking as read");
             notification.read = false;
+            alert("pushing to array");
             _this.notifications.push(notification);
+            alert("add through provider");
             _this.notificationProvider.addNotification(notification).then(function () {
+                alert("updating count");
                 _this.events.publish("notification:updatecount");
             });
         });
@@ -2181,8 +2186,11 @@ var MyApp = /** @class */ (function () {
             if (_this.platform.is('cordova')) {
                 _this.oneSignal.startInit("c37e5d83-df30-4cb2-97a3-fdb45dcd08ed", "560659639701");
                 _this.oneSignal.handleNotificationReceived().subscribe(function (data) {
+                    alert("in notification received");
                     data.payload.additionalData["title"] = data.payload.title;
+                    alert("assigning variable");
                     var pushData = data.payload.additionalData;
+                    alert("publishing event");
                     _this.events.publish("notification:received", pushData);
                 });
                 _this.oneSignal.handleNotificationOpened().subscribe(function (data) {
