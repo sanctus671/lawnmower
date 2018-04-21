@@ -1763,9 +1763,10 @@ var PopoverPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'notifications-popover',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/'<ion-list class="tools-popover">\n    <ion-item class=\'empty-notifications\' *ngIf="notifications.length < 1">\n        <h2>No Notifications</h2>\n    </ion-item>\n    <button ion-item *ngFor="let notification of notifications; let i = index" (click)="viewNotification(i, notification)" [ngClass]="{\'unread\':!notification.read}">\n            {{notification.title}}\n    </button>\n</ion-list>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object])
     ], PopoverPage);
     return PopoverPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=popover.js.map
@@ -2095,9 +2096,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, authProvider, storage, oneSignal, events, jobProvider, profileProvider) {
+    function MyApp(platform, app, statusBar, splashScreen, authProvider, storage, oneSignal, events, jobProvider, profileProvider) {
         var _this = this;
         this.platform = platform;
+        this.app = app;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.authProvider = authProvider;
@@ -2178,29 +2180,32 @@ var MyApp = /** @class */ (function () {
             //this.splashScreen.hide();
             if (_this.platform.is('cordova')) {
                 _this.oneSignal.startInit("c37e5d83-df30-4cb2-97a3-fdb45dcd08ed", "560659639701");
-                _this.oneSignal.handleNotificationOpened().subscribe(function (data) {
-                    var pushData = data.notification.payload.additionalData;
-                    data.notification.payload.additionalData["title"] = data.notification.payload.title;
+                _this.oneSignal.handleNotificationReceived().subscribe(function (data) {
+                    data.payload.additionalData["title"] = data.payload.title;
+                    var pushData = data.payload.additionalData;
                     _this.events.publish("notification:received", pushData);
+                });
+                _this.oneSignal.handleNotificationOpened().subscribe(function (data) {
                     if (!data.notification.isAppInFocus) {
+                        var pushData = data.notification.payload.additionalData;
                         if (pushData.type === "job" && _this.user.permission === "contractor") {
                             _this.jobProvider.getJob(pushData.id).then(function (job) {
-                                _this.nav.push(__WEBPACK_IMPORTED_MODULE_8__pages_contractor_job_contractor_job__["a" /* ContractorJobPage */], { job: job });
+                                _this.app.getRootNav().push(__WEBPACK_IMPORTED_MODULE_8__pages_contractor_job_contractor_job__["a" /* ContractorJobPage */], { job: job });
                             });
                         }
                         else if (pushData.type === "job" && _this.user.permission === "customer") {
                             _this.jobProvider.getJob(pushData.id).then(function (job) {
-                                _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_customer_job_customer_job__["a" /* CustomerJobPage */], { job: job });
+                                _this.app.getRootNav().push(__WEBPACK_IMPORTED_MODULE_9__pages_customer_job_customer_job__["a" /* CustomerJobPage */], { job: job });
                             });
                         }
                         else if (pushData.type === "profile") {
                             if (pushData.id) {
                                 _this.profileProvider.getProfile(pushData.id).then(function (profile) {
-                                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__["a" /* ProfilePage */], { profile: profile });
+                                    _this.app.getRootNav().push(__WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__["a" /* ProfilePage */], { profile: profile });
                                 });
                             }
                             else {
-                                setTimeout(function () { _this.nav.push(__WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__["a" /* ProfilePage */], {}); }, 500);
+                                setTimeout(function () { _this.app.getRootNav().push(__WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__["a" /* ProfilePage */], {}); }, 500);
                             }
                         }
                     }
@@ -2221,14 +2226,15 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header [ngClass]="{contractor:user.permission === \'contractor\'}">\n        <div class="user-dp">\n            <img [src]="user.profile.avatar"/>\n        </div>\n        <div class="username">\n            Hello, {{user.profile.first_name ? user.profile.first_name : " user"}}!\n        </div>      \n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>       \n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_14__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__["a" /* ProfileProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__["a" /* AuthenticationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__["a" /* AuthenticationProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_14__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__providers_job_job__["a" /* JobProvider */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _l || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=app.component.js.map
