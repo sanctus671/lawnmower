@@ -2655,11 +2655,13 @@ var ProfilePage = /** @class */ (function () {
         this.properties = { activeTab: "profile" };
         this.profile = navParams.data.profile ? navParams.data.profile : {};
         this.profile.reviews = [];
+        this.usersPermission = "";
         if (!this.profile.id) {
             this.storage.get("user").then(function (user) {
                 if (user) {
                     _this.profile = user.profile;
                     _this.profile.permission = user.permission;
+                    _this.usersPermission = user.permission;
                     _this.profile.isMyProfile = true;
                     _this.profile.reviews = [];
                     _this.getReviews();
@@ -2669,8 +2671,21 @@ var ProfilePage = /** @class */ (function () {
         else {
             this.getReviews();
             this.setStatusBar();
+            this.storage.get("user").then(function (user) {
+                if (user) {
+                    _this.usersPermission = user.permission;
+                }
+            });
         }
     }
+    ProfilePage.prototype.ionViewWillLeave = function () {
+        if (this.usersPermission === "customer") {
+            this.statusBar.backgroundColorByHexString("#5697ab");
+        }
+        else if (this.usersPermission === "contractor") {
+            this.statusBar.backgroundColorByHexString("#3c5a01");
+        }
+    };
     ProfilePage.prototype.setStatusBar = function () {
         if (this.profile.permission === "customer") {
             this.statusBar.backgroundColorByHexString("#5697ab");
@@ -2710,9 +2725,10 @@ var ProfilePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button> \n      \n      \n        <ion-title>{{!profile.first_name && !profile.last_name ? "Profile" : ""}}{{profile.first_name}} {{profile.last_name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n<ion-content>\n    \n    <ion-segment [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="profile">\n            Profile\n        </ion-segment-button>\n      <ion-segment-button value="reviews">\n            Reviews <ion-badge *ngIf="profile.reviews.length > 0" [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">{{profile.reviews.length}}</ion-badge>\n      </ion-segment-button>       \n    </ion-segment>        \n    \n    \n    <ion-list *ngIf="properties.activeTab === \'profile\'" class=\'profile-details\'>\n\n        <ion-item *ngIf="profile.first_name || profile.last_name">\n            <h2>Name</h2>\n            <p>{{profile.first_name}} {{profile.last_name}}</p>\n        </ion-item>\n        \n        <ion-item *ngIf="profile.dob">\n            <h2>Date Of Birth</h2>\n            <p>{{formatDate(profile.dob)}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.gender">\n            <h2>Gender</h2>\n            <p>{{profile.gender}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.phone">\n            <h2>Phone</h2>\n            <p><a (click)="openURL(\'tel:\' + profile.phone)">{{profile.phone}}</a></p>\n        </ion-item>         \n\n\n        <ion-item *ngIf="profile.public_email">\n            <h2>Email</h2>\n            <p><a (click)="openURL(\'mailto:\' + profile.public_email)">{{profile.public_email}}</a></p>\n        </ion-item>  \n        \n        <ion-item *ngIf="profile.website">\n            <h2>Website</h2>\n            <p><a (click)="openURL(profile.website)">{{profile.website}}</a></p>\n        </ion-item>    \n        \n        <ion-item *ngIf="profile.business_hours">\n            <h2>Business Hours</h2>\n            <p>{{profile.business_hours}}</p>\n        </ion-item>   \n        \n        <ion-item *ngIf="profile.biography" class="item-long-text">\n            <h2>Biography</h2>\n            <p>{{profile.biography}}</p>\n        </ion-item>          \n        \n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'reviews\'" class=\'profile-reviews\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="profile.reviews.length < 1">\n            <ion-icon name="star"></ion-icon>\n            <h3>No reviews</h3>\n        </div>          \n\n        <ion-item *ngFor="let review of profile.reviews" class="item-long-text">\n            \n            <ion-avatar item-start>\n              <img [src]="review.profile.avatar" />\n            </ion-avatar>            \n            <h2 class="star-ratings"><ion-icon name="star" *ngFor="let dummy of \' \'.repeat(review.rating).split(\'\'), let x = index"></ion-icon></h2>\n            <p>{{review.comment}}</p>\n        </ion-item>\n        \n        \n    </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer *ngIf="profile.isMyProfile" class=\'filter-footer\'>\n    <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="openEditProfile()">Edit Profile</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _g || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=profile.js.map
