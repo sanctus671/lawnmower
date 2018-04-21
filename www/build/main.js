@@ -449,12 +449,12 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage.prototype.nextStage = function () {
         if (this.stage === 2 && (!this.profile.public_email || !this.validateEmail(this.profile.public_email))) {
-            var alert_1 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: 'Invalid Email',
                 subTitle: 'A valid email is required to sign up.',
                 buttons: ['Dismiss']
             });
-            alert_1.present();
+            alert.present();
             return;
         }
         else if (this.stage === 2 && this.user.permission === "customer") {
@@ -541,7 +541,7 @@ var SignupPage = /** @class */ (function () {
                     _this.profile.avatar = response.data;
                 }
                 else {
-                    var alert_2 = _this.alertCtrl.create({
+                    var alert = _this.alertCtrl.create({
                         title: "Error",
                         subTitle: "There was a problem uploading your image",
                         message: JSON.stringify(response),
@@ -552,14 +552,15 @@ var SignupPage = /** @class */ (function () {
                             }
                         ]
                     });
-                    alert_2.present();
+                    alert.present();
                 }
             }, function (err) {
+                console.log(err);
                 loading.dismiss();
                 var alert = _this.alertCtrl.create({
                     title: "Error",
                     subTitle: "There was a problem uploading your image",
-                    message: err,
+                    message: JSON.stringify(err),
                     buttons: [
                         {
                             text: 'Dismiss',
@@ -575,15 +576,16 @@ var SignupPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_10__components_google_maps_google_maps__["a" /* GoogleMapsComponent */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_10__components_google_maps_google_maps__["a" /* GoogleMapsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__components_google_maps_google_maps__["a" /* GoogleMapsComponent */]) === "function" && _a || Object)
     ], SignupPage.prototype, "mapComponent", void 0);
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-signup',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="secondary">\n        <ion-title>Signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    \n    <ul class=\'signup-progress\'>\n        <li class=\'active\' (click)="changeStage(1)">What Are You?</li>\n        <li [ngClass]="{\'active\' : stage > 1}" (click)="changeStage(2)">About You</li>\n        <li *ngIf="user.permission === \'contractor\'" [ngClass]="{\'active\' : stage > 2}" (click)="changeStage(3)">Location</li>\n        <li [ngClass]="{\'active\' : stage > 3}" (click)="changeStage(4)">Security</li>\n    </ul>\n    \n    \n    <div class="card-background-page signup-types" *ngIf="!stage || stage === 1">\n        <ion-list-header>\n            <h1>What Are You?</h1>\n        </ion-list-header>  \n        <ion-card (click)="selectUserType(\'customer\')"  [ngClass]="{\'active\' : user.permission === \'customer\'}">\n          <img src="assets/imgs/lawn.jpg"/>\n          <div class="card-title">Household</div>\n          <div class="card-subtitle">I need my lawns mowed</div>\n        </ion-card>\n\n        <ion-card (click)="selectUserType(\'contractor\')" [ngClass]="{\'active\' : user.permission === \'contractor\'}">\n          <img src="assets/imgs/mow.jpg"/>\n          <div class="card-title">Contractor</div>\n          <div class="card-subtitle">I want to mow lawns</div>\n        </ion-card>\n\n\n    </div>  \n       \n    \n    <ion-list *ngIf="stage === 2">\n        <ion-list-header>\n            <h1>About You</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button color=\'secondary\' (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="Male">Male</ion-option>\n            <ion-option value="Female">Female</ion-option>\n            <ion-option value="Other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>        \n        \n    </ion-list>    \n    \n\n    \n    \n    <ion-list *ngIf="stage === 3">\n        \n    <ion-list-header class="radius-header">\n        Radius Serviced (km)\n        <ion-badge item-end>{{profile.radius}}km</ion-badge>\n    </ion-list-header>         \n        <ion-item>\n            <ion-range min="1" max="100" step="10" [(ngModel)]="profile.radius" pin="true" (ionChange)="updateRadius()">\n                \n                <ion-icon small range-left name="locate"></ion-icon>\n                <ion-icon range-right name="locate"></ion-icon>\n            </ion-range>\n         </ion-item>   \n        \n        \n        <google-maps apiKey="AIzaSyDkvDS9y2q27OyDfnrJdMk0xh_flzbAzhc" latitude="{{profile.latitude}}" longitude="{{profile.longitude}}" radius="{{profile.radius}}"></google-maps>\n        \n    </ion-list>\n    \n    <ion-list *ngIf="stage === 4">\n        <ion-list-header>\n            <h1>Security</h1>\n        </ion-list-header>        \n        \n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item> \n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n        \n    </ion-list>     \n    \n    \n</ion-content>\n\n\n<ion-footer>\n    <button ion-button full color=\'secondary\' (click)="nextStage()" *ngIf="!stage || stage < 4">Next&nbsp;&nbsp;<ion-icon name="arrow-forward"></ion-icon></button>\n\n    <button ion-button full color=\'secondary\' class="login-button" [disabled]="user.loading" (click)="signup()" *ngIf="stage === 4">\n        Get Started&nbsp;&nbsp;\n        <ion-icon name="arrow-forward"></ion-icon>\n        <ion-spinner *ngIf="user.loading"></ion-spinner>\n    </button>\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\signup\signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _m || Object])
     ], SignupPage);
     return SignupPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=signup.js.map
