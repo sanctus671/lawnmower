@@ -49,7 +49,6 @@ var LoginPage = /** @class */ (function () {
         var _this = this;
         this.user.loading = true;
         this.user.error = "";
-        console.log("here");
         this.authProvider.login(this.user).then(function (token) {
             _this.authProvider.getUserData().then(function (user) {
                 _this.user.loading = false;
@@ -65,7 +64,6 @@ var LoginPage = /** @class */ (function () {
                 _this.user.loading = false;
             });
         }).catch(function (e) {
-            console.log(e);
             _this.user.loading = false;
             if (e && e.status === 401) {
                 _this.user.error = "Invalid credentials";
@@ -487,7 +485,6 @@ var SignupPage = /** @class */ (function () {
                 _this.user.loading = true;
             });
         }).catch(function (e) {
-            console.log(e);
             _this.user.loading = false;
             if (e && e.error) {
                 for (var _i = 0, _a = e.error.error.errors; _i < _a.length; _i++) {
@@ -910,10 +907,9 @@ var EditProfileModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'edit-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/'<ion-header>\n    <ion-toolbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <ion-title>\n            Edit Profile\n        </ion-title>\n        <ion-buttons start>\n\n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n  \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-avatar item-start>\n                <img [src]="profile.avatar">\n            </ion-avatar>\n            <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="changeAvatar()">Change Photo</button>\n        </ion-item>\n        \n        <ion-item>\n            <ion-label floating>First Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.first_name"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n            <ion-label floating>Last Name</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.last_name"></ion-input>\n        </ion-item>         \n        \n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input type="email" [(ngModel)]="profile.public_email"></ion-input>\n        </ion-item>   \n\n        <ion-item>\n            <ion-label floating>Phone</ion-label>\n            <ion-input type="tel" [(ngModel)]="profile.phone"></ion-input>\n        </ion-item> \n        \n        <ion-item>\n          <ion-label floating>Gender</ion-label>\n          <ion-select [(ngModel)]="profile.gender">\n            <ion-option value="male">Male</ion-option>\n            <ion-option value="female">Female</ion-option>\n            <ion-option value="other">Other</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating>Date Of Birth</ion-label>\n            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="profile.dob"></ion-datetime>\n        </ion-item>   \n        \n        \n        <div *ngIf="profile.permission === \'contractor\'">\n            \n            \n            <ion-item>\n                <ion-label floating>Website</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.website"></ion-input>\n            </ion-item>   \n            \n            <ion-item>\n                <ion-label floating>Business Hours</ion-label>\n                <ion-input type="text" [(ngModel)]="profile.business_hours"></ion-input>\n            </ion-item>              \n            \n\n            <ion-item>\n                <ion-label floating>Biography/About You</ion-label>\n                <ion-textarea [(ngModel)]="profile.biography"></ion-textarea>\n            </ion-item>\n            \n        </div>\n        \n        \n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="update()">Update Profile</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-profile\edit-profile.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _m || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
     ], EditProfileModal);
     return EditProfileModal;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=edit-profile.js.map
@@ -1019,7 +1015,6 @@ var CreateJobModal = /** @class */ (function () {
         this.job = { imagesArray: ["http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/house-icon.png"] };
     }
     CreateJobModal.prototype.create = function () {
-        console.log(this.job);
         this.job.images = JSON.stringify(this.job.imagesArray);
         this.viewCtrl.dismiss(this.job);
     };
@@ -1031,7 +1026,6 @@ var CreateJobModal = /** @class */ (function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__modals_find_address_find_address__["a" /* FindAddressModal */], { location: this.job.location });
         modal.onDidDismiss(function (address) {
             if (address) {
-                console.log(address);
                 _this.job.location = address.description;
                 _this.nativeGeocoder.forwardGeocode(address.description)
                     .then(function (coordinates) {
@@ -1052,7 +1046,6 @@ var CreateJobModal = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     },
                     cssClass: "cancel-button"
                 },
@@ -1164,10 +1157,9 @@ var CreateJobModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'create-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Create Job\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-label floating>Price ($)</ion-label>\n            <ion-input type="number" [(ngModel)]="job.price"></ion-input>\n        </ion-item>   \n        \n        \n    \n        <ion-item>\n            <ion-label floating>Location</ion-label>\n            <ion-input type="text" [(ngModel)]="job.location" (ionFocus)="openFindAddress()"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Preferred Date & Time</ion-label>\n            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="job.preferred_time"></ion-datetime>\n        </ion-item>      \n        \n        <ion-item>\n            <ion-label floating>Job Title</ion-label>\n            <ion-input type="text" [(ngModel)]="job.title"></ion-input>\n        </ion-item>          \n        \n        \n        <ion-item>\n            <ion-label floating>Description</ion-label>\n            <ion-textarea [(ngModel)]="job.description"></ion-textarea>\n        </ion-item>         \n        \n        <ion-item>\n            <p>Gallery</p>\n            <div class="job-add-images">\n                \n                <div class="job-image" *ngFor="let image of job.imagesArray;let i = index" (click)="openImageOptions(i)">\n                     <img [src]="image">\n                </div>\n                <div class="job-add-image" (click)="addImage()"><ion-icon name="add"></ion-icon></div>\n                \n            </div>    \n                \n        </ion-item>\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color=\'primary\' (click)="create()" [disabled]="!job.price || !job.location || !job.description">Create Job</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\create-job\create-job.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _m || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]])
     ], CreateJobModal);
     return CreateJobModal;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=create-job.js.map
@@ -1223,10 +1215,8 @@ var EditJobModal = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.job = {};
         Object.assign(this.job, this.params.data.job);
-        console.log(this.job);
         this.job.imagesArray = JSON.parse(this.job.images);
         this.job.preferred_time = __WEBPACK_IMPORTED_MODULE_8_moment__(this.job.preferred_time).toISOString();
-        console.log(this.job.preferred_time);
     }
     EditJobModal.prototype.update = function () {
         this.job.images = JSON.stringify(this.job.imagesArray);
@@ -1245,7 +1235,6 @@ var EditJobModal = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -1264,7 +1253,6 @@ var EditJobModal = /** @class */ (function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__modals_find_address_find_address__["a" /* FindAddressModal */], { location: this.job.location });
         modal.onDidDismiss(function (address) {
             if (address) {
-                console.log(address);
                 _this.job.location = address.description;
                 _this.nativeGeocoder.forwardGeocode(address.description)
                     .then(function (coordinates) {
@@ -1397,10 +1385,9 @@ var EditJobModal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'edit-job',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-job\edit-job.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            Edit Job\n        </ion-title>\n        <ion-buttons start>\n            \n            <button icon-start ion-button (click)="openDelete()" showWhen="android, windows">\n                <ion-icon name="md-trash"></ion-icon>\n                Delete\n            </button> \n\n            \n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n        \n        \n        <ion-buttons showWhen="ios" end>    \n            <button ion-button (click)="openDelete()">\n                <span ion-text>Delete</span>\n            </button>              \n        </ion-buttons>        \n        \n        \n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content>\n    \n    <ion-list>      \n\n        \n        <ion-item>\n            <ion-label floating>Price ($)</ion-label>\n            <ion-input type="number" [(ngModel)]="job.price"></ion-input>\n        </ion-item>   \n \n        \n    \n        <ion-item>\n            <ion-label floating>Location</ion-label>\n            <ion-input type="text" [(ngModel)]="job.location" (ionFocus)="openFindAddress()"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Preferred Date & Time</ion-label>\n            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="job.preferred_time"></ion-datetime>\n        </ion-item>         \n\n        <ion-item>\n            <ion-label floating>Job Title</ion-label>\n            <ion-input type="text" [(ngModel)]="job.title"></ion-input>\n        </ion-item>  \n        \n        <ion-item>\n            <ion-label floating>Description</ion-label>\n            <ion-textarea [(ngModel)]="job.description"></ion-textarea>\n        </ion-item>         \n        \n        <ion-item>\n            <p>Gallery</p>\n            <div class="job-add-images">\n                \n                <div class="job-image" *ngFor="let image of job.imagesArray;let i = index" (click)="openImageOptions(i)">\n                     <img [src]="image">\n                </div>\n                <div class="job-add-image" (click)="addImage()"><ion-icon name="add"></ion-icon></div>\n                \n            </div>    \n                \n        </ion-item>\n    </ion-list>  \n        \n        \n</ion-content>\n\n\n\n<ion-footer>\n    <button ion-button full color=\'primary\' (click)="update()" [disabled]="!job.price || !job.location || !job.title">Update Job</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\modals\edit-job\edit-job.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _m || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_native_geocoder__["a" /* NativeGeocoder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]])
     ], EditJobModal);
     return EditJobModal;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=edit-job.js.map
@@ -1592,9 +1579,6 @@ var SettingsPage = /** @class */ (function () {
         this.authProvider.logout();
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */]);
         this.navCtrl.popToRoot();
-    };
-    SettingsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SettingsPage');
     };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -2149,7 +2133,6 @@ var MyApp = /** @class */ (function () {
             _this.splashScreen.hide();
         });
         this.events.subscribe("user:retreived", function (user) {
-            console.log(user);
             _this.user = user;
             if (user.permission === "contractor") {
                 _this.pages[0].component = __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */];
@@ -2718,17 +2701,13 @@ var ProfilePage = /** @class */ (function () {
     ProfilePage.prototype.openURL = function (url) {
         window.open(url, '_system');
     };
-    ProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ProfilePage');
-    };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button> \n      \n      \n        <ion-title>{{!profile.first_name && !profile.last_name ? "Profile" : ""}}{{profile.first_name}} {{profile.last_name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n<ion-content>\n    \n    <ion-segment [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="profile">\n            Profile\n        </ion-segment-button>\n      <ion-segment-button value="reviews">\n            Reviews <ion-badge *ngIf="profile.reviews.length > 0" [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'">{{profile.reviews.length}}</ion-badge>\n      </ion-segment-button>       \n    </ion-segment>        \n    \n    \n    <ion-list *ngIf="properties.activeTab === \'profile\'" class=\'profile-details\'>\n\n        <ion-item *ngIf="profile.first_name || profile.last_name">\n            <h2>Name</h2>\n            <p>{{profile.first_name}} {{profile.last_name}}</p>\n        </ion-item>\n        \n        <ion-item *ngIf="profile.dob">\n            <h2>Date Of Birth</h2>\n            <p>{{formatDate(profile.dob)}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.gender">\n            <h2>Gender</h2>\n            <p>{{profile.gender}}</p>\n        </ion-item>      \n        \n        <ion-item *ngIf="profile.phone">\n            <h2>Phone</h2>\n            <p><a (click)="openURL(\'tel:\' + profile.phone)">{{profile.phone}}</a></p>\n        </ion-item>         \n\n\n        <ion-item *ngIf="profile.public_email">\n            <h2>Email</h2>\n            <p><a (click)="openURL(\'mailto:\' + profile.public_email)">{{profile.public_email}}</a></p>\n        </ion-item>  \n        \n        <ion-item *ngIf="profile.website">\n            <h2>Website</h2>\n            <p><a (click)="openURL(profile.website)">{{profile.website}}</a></p>\n        </ion-item>    \n        \n        <ion-item *ngIf="profile.business_hours">\n            <h2>Business Hours</h2>\n            <p>{{profile.business_hours}}</p>\n        </ion-item>   \n        \n        <ion-item *ngIf="profile.biography" class="item-long-text">\n            <h2>Biography</h2>\n            <p>{{profile.biography}}</p>\n        </ion-item>          \n        \n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'reviews\'" class=\'profile-reviews\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="profile.reviews.length < 1">\n            <ion-icon name="star"></ion-icon>\n            <h3>No reviews</h3>\n        </div>          \n\n        <ion-item *ngFor="let review of profile.reviews" class="item-long-text">\n            \n            <ion-avatar item-start>\n              <img [src]="review.profile.avatar" />\n            </ion-avatar>            \n            <h2 class="star-ratings"><ion-icon name="star" *ngFor="let dummy of \' \'.repeat(review.rating).split(\'\'), let x = index"></ion-icon></h2>\n            <p>{{review.comment}}</p>\n        </ion-item>\n        \n        \n    </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer *ngIf="profile.isMyProfile" class=\'filter-footer\'>\n    <button ion-button [color]="profile.permission === \'contractor\' ? \'secondary\' : \'primary\'" (click)="openEditProfile()">Edit Profile</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_2__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], ProfilePage);
     return ProfilePage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -2886,7 +2865,6 @@ var AuthenticationProvider = /** @class */ (function () {
     AuthenticationProvider.prototype.login = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            console.log(data);
             _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_app_settings__["a" /* AppSettings */].apiUrl + "/auth/login", data).subscribe(function (res) {
                 _this.storage.set("token", res["token"]).then(function () {
                     _this.events.publish("user:loggedin");
@@ -3077,12 +3055,10 @@ var ContractorJobsPage = /** @class */ (function () {
         var _this = this;
         this.properties.loading = true;
         this.jobProvider.getJobs(this.filters).then(function (jobs) {
-            console.log(jobs);
             _this.properties.loading = false;
             _this.currentJobs = jobs["current"];
             _this.availableJobs = jobs["available"];
             _this.completedJobs = jobs["completed"];
-            console.log(_this.currentJobs);
         }).catch(function () {
             _this.properties.loading = false;
         });
@@ -3145,7 +3121,6 @@ var ContractorJobsPage = /** @class */ (function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__["a" /* CreateReviewModal */], { job: job, profile: profile, permission: "contractor" });
         modal.onDidDismiss(function (review) {
             if (review) {
-                console.log(review);
                 _this.reviewProvider.createReview(review).then(function () {
                     _this.events.publish("job:reviewed", { job: job });
                     var alert = _this.alertCtrl.create({
@@ -3156,7 +3131,6 @@ var ContractorJobsPage = /** @class */ (function () {
                                 text: 'Dismiss',
                                 role: 'cancel',
                                 handler: function () {
-                                    console.log('Cancel clicked');
                                 }
                             }
                         ]
@@ -3166,9 +3140,6 @@ var ContractorJobsPage = /** @class */ (function () {
             }
         });
         modal.present();
-    };
-    ContractorJobsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ContractorJobsPage');
     };
     ContractorJobsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -3234,7 +3205,6 @@ var ContractorJobPage = /** @class */ (function () {
                 _this.user = user;
             }
         });
-        console.log(this.job);
     }
     ContractorJobPage.prototype.viewProfile = function () {
         if (this.job.profile) {
@@ -3282,7 +3252,6 @@ var ContractorJobPage = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -3301,7 +3270,6 @@ var ContractorJobPage = /** @class */ (function () {
                                         text: 'Dismiss',
                                         role: 'cancel',
                                         handler: function () {
-                                            console.log('Cancel clicked');
                                         }
                                     }
                                 ]
@@ -3313,9 +3281,6 @@ var ContractorJobPage = /** @class */ (function () {
             ]
         });
         alert.present();
-    };
-    ContractorJobPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad JobPage');
     };
     ContractorJobPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -3579,7 +3544,6 @@ var CustomerJobsPage = /** @class */ (function () {
         var _this = this;
         this.properties.loading = true;
         this.jobProvider.getCreatedJobs().then(function (jobs) {
-            console.log(jobs);
             _this.properties.loading = false;
             _this.openJobs = jobs["open"];
             _this.completedJobs = jobs["completed"];
@@ -3621,12 +3585,9 @@ var CustomerJobsPage = /** @class */ (function () {
             if (job) {
                 _this.openJobs.push(job);
                 _this.jobProvider.createJob(job).then(function (res) {
-                    console.log(res);
                     job.id = res["id"];
                 }).catch(function (e) {
-                    console.log(e);
                 });
-                console.log(job);
             }
         });
         modal.present();
@@ -3641,15 +3602,10 @@ var CustomerJobsPage = /** @class */ (function () {
                 _this.jobProvider.deleteJob(job.id);
             }
             else if (job) {
-                console.log(job);
-                console.log(_this.openJobs[index]);
                 Object.assign(_this.openJobs[index], job);
                 _this.jobProvider.updateJob(job).then(function (res) {
-                    console.log(res);
                 }).catch(function (e) {
-                    console.log(e);
                 });
-                console.log(job);
             }
         });
         modal.present();
@@ -3679,7 +3635,6 @@ var CustomerJobsPage = /** @class */ (function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__["a" /* CreateReviewModal */], { job: job, profile: profile, permission: "customer" });
         modal.onDidDismiss(function (review) {
             if (review) {
-                console.log(review);
                 _this.reviewProvider.createReview(review).then(function () {
                     _this.events.publish("job:reviewed", { job: job });
                     var alert = _this.alertCtrl.create({
@@ -3690,7 +3645,6 @@ var CustomerJobsPage = /** @class */ (function () {
                                 text: 'Dismiss',
                                 role: 'cancel',
                                 handler: function () {
-                                    console.log('Cancel clicked');
                                 }
                             }
                         ]
@@ -3700,9 +3654,6 @@ var CustomerJobsPage = /** @class */ (function () {
             }
         });
         modal.present();
-    };
-    CustomerJobsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CustomerJobsPage');
     };
     CustomerJobsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -3764,7 +3715,6 @@ var CustomerJobPage = /** @class */ (function () {
         this.properties = { activeTab: "details" };
         this.job = navParams.data.job;
         this.job.imagesArray = JSON.parse(this.job.images);
-        console.log(this.job.imagesArray);
     }
     CustomerJobPage.prototype.viewProfile = function (applicant) {
         if (applicant && applicant.profile) {
@@ -3784,7 +3734,6 @@ var CustomerJobPage = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -3813,7 +3762,6 @@ var CustomerJobPage = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -3840,7 +3788,6 @@ var CustomerJobPage = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -3868,7 +3815,6 @@ var CustomerJobPage = /** @class */ (function () {
                     text: 'Cancel',
                     role: 'cancel',
                     handler: function () {
-                        console.log('Cancel clicked');
                     }
                 },
                 {
@@ -3893,7 +3839,6 @@ var CustomerJobPage = /** @class */ (function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__modals_create_review_create_review__["a" /* CreateReviewModal */], { job: this.job, profile: profile, permission: "customer" });
         modal.onDidDismiss(function (review) {
             if (review) {
-                console.log(review);
                 _this.reviewProvider.createReview(review).then(function () {
                     _this.events.publish("job:reviewed", { job: _this.job });
                     var alert = _this.alertCtrl.create({
@@ -3904,7 +3849,6 @@ var CustomerJobPage = /** @class */ (function () {
                                 text: 'Dismiss',
                                 role: 'cancel',
                                 handler: function () {
-                                    console.log('Cancel clicked');
                                 }
                             }
                         ]
@@ -3917,9 +3861,6 @@ var CustomerJobPage = /** @class */ (function () {
     };
     CustomerJobPage.prototype.formatTime = function (dateTimeString) {
         return __WEBPACK_IMPORTED_MODULE_2_moment__(dateTimeString).format("dddd, MMMM Do YYYY, h:mm a");
-    };
-    CustomerJobPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad JobPage');
     };
     CustomerJobPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
