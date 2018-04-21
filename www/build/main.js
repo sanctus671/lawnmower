@@ -1676,6 +1676,7 @@ var UpdateRadiusModal = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_job_contractor_job__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_job_customer_job__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_profile_profile__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_onesignal__ = __webpack_require__(349);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1694,10 +1695,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PopoverPage = /** @class */ (function () {
-    function PopoverPage(nav, app, viewCtrl, modalCtrl, notificationProvider, storage, jobProvider, profileProvider, events) {
+    function PopoverPage(nav, platform, oneSignal, app, viewCtrl, modalCtrl, notificationProvider, storage, jobProvider, profileProvider, events) {
         var _this = this;
         this.nav = nav;
+        this.platform = platform;
+        this.oneSignal = oneSignal;
         this.app = app;
         this.viewCtrl = viewCtrl;
         this.modalCtrl = modalCtrl;
@@ -1718,20 +1722,29 @@ var PopoverPage = /** @class */ (function () {
             }
         });
         this.events.subscribe("notification:received", function (notification) {
-            alert("in notification received event");
-            if (_this.notifications.length > 5) {
-                _this.notifications.pop();
-            }
-            alert("marking as read");
-            notification.read = false;
-            alert("pushing to array");
-            _this.notifications.push(notification);
-            alert("add through provider");
-            _this.notificationProvider.addNotification(notification).then(function () {
-                alert("updating count");
-                _this.events.publish("notification:updatecount");
-            });
+            alert("in notification reeived event");
         });
+        if (this.platform.is('cordova')) {
+            this.oneSignal.handleNotificationReceived().subscribe(function (data) {
+                alert("in popover");
+                data.payload.additionalData["title"] = data.payload.title;
+                alert("assigning variable");
+                var pushData = data.payload.additionalData;
+                alert("in notification received event");
+                if (_this.notifications.length > 5) {
+                    _this.notifications.pop();
+                }
+                alert("marking as read");
+                pushData.read = false;
+                alert("pushing to array");
+                _this.notifications.push(pushData);
+                alert("add through provider");
+                _this.notificationProvider.addNotification(pushData).then(function () {
+                    alert("updating count");
+                    _this.events.publish("notification:updatecount");
+                });
+            });
+        }
     }
     PopoverPage.prototype.viewNotification = function (index, notification) {
         var _this = this;
@@ -1768,10 +1781,10 @@ var PopoverPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'notifications-popover',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/'<ion-list class="tools-popover">\n    <ion-item class=\'empty-notifications\' *ngIf="notifications.length < 1">\n        <h2>No Notifications</h2>\n    </ion-item>\n    <button ion-item *ngFor="let notification of notifications; let i = index" (click)="viewNotification(i, notification)" [ngClass]="{\'unread\':!notification.read}">\n            {{notification.title}}\n    </button>\n</ion-list>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_onesignal__["a" /* OneSignal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_onesignal__["a" /* OneSignal */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _l || Object])
     ], PopoverPage);
     return PopoverPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=popover.js.map
