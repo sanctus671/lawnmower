@@ -539,24 +539,7 @@ var SignupPage = /** @class */ (function () {
             fileTransfer.upload(image, encodeURI(__WEBPACK_IMPORTED_MODULE_10__app_app_settings__["a" /* AppSettings */].apiUrl + "/upload"), options).then(function (data) {
                 loading.dismiss();
                 console.log(data);
-                var response = JSON.parse(data.response);
-                if (response.success === true) {
-                    _this.profile.avatar = response.data;
-                }
-                else {
-                    var alert = _this.alertCtrl.create({
-                        title: "Error",
-                        subTitle: "There was a problem uploading your image",
-                        message: JSON.stringify(response),
-                        buttons: [
-                            {
-                                text: 'Dismiss',
-                                role: 'cancel'
-                            }
-                        ]
-                    });
-                    alert.present();
-                }
+                _this.profile.avatar = data.response;
             }, function (err) {
                 console.log(err);
                 loading.dismiss();
