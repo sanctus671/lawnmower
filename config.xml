@@ -103,11 +103,12 @@
         <param name="CAMERA_USAGE_DESCRIPTION" value="We are using the Camera to take pictures for an avatar" />
         <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We are using the Photo Library to get pictures for an avatar" />
     </gap:plugin>
-    <gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.7.1" />
+    <gap:plugin name="cordova-plugin-file" source="npm" version="^4.3.3" />
+    <gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.5.1" />
     <gap:plugin spec="https://github.com/brodybits/cordova-sqlite-legacy-build-support" />
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.15" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" version="^2.3.0" />
-    <gap:plugin name="cordova-plugin-file" source="npm" version="^4.3.3" />
+    
 </widget>
