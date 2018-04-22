@@ -1,100 +1,5 @@
 webpackJsonp([0],{
 
-/***/ 121:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contractor_jobs_contractor_jobs__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customer_jobs_customer_jobs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_authentication_authentication__ = __webpack_require__(54);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, authProvider, statusBar) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.authProvider = authProvider;
-        this.statusBar = statusBar;
-        this.user = { email: "", password: "", error: "", loading: false };
-    }
-    LoginPage.prototype.ionViewDidEnter = function () {
-        this.statusBar.backgroundColorByHexString("#5697ab");
-    };
-    LoginPage.prototype.login = function () {
-        var _this = this;
-        this.user.loading = true;
-        this.user.error = "";
-        this.authProvider.login(this.user).then(function (token) {
-            _this.authProvider.getUserData().then(function (user) {
-                _this.user.loading = false;
-                if (user["permission"] === "contractor") {
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */]);
-                    _this.navCtrl.popToRoot();
-                }
-                else {
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__customer_jobs_customer_jobs__["a" /* CustomerJobsPage */]);
-                    _this.navCtrl.popToRoot();
-                }
-            }).catch(function (e) {
-                _this.user.loading = false;
-            });
-        }).catch(function (e) {
-            _this.user.loading = false;
-            if (e && e.status === 401) {
-                _this.user.error = "Invalid credentials";
-            }
-            else if (e && e.status === 422) {
-                for (var _i = 0, _a = e.error.error.errors; _i < _a.length; _i++) {
-                    var error = _a[_i];
-                    _this.user.error = _this.user.error + error + " ";
-                }
-            }
-            else {
-                _this.user.error = e.message;
-            }
-        });
-    };
-    LoginPage.prototype.signup = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
-    };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/'<ion-content>\n    \n    <div class="login-top-section">\n    \n        <h1 class="logo-text">Mow My Lawn</h1>\n\n        <img class="logo" src="assets/imgs/logo-icon.png" />\n        \n        <p>Find or post lawn mowing jobs</p>\n        <div class=\'bg\'></div>\n        <div class="nectar-shape-divider-wrap " data-front="" data-style="curve_opacity" data-position="top"><svg class="nectar-shape-divider" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 14 s 88.64 3.48 300 36 c 260 40 514 27 703 -10 l 12 28 l 3 36 h -1018 z"></path> <path d="M 0 45 s 271 45.13 500 32 c 157 -9 330 -47 515 -63 v 86 h -1015 z"></path> <path d="M 0 58 s 188.29 32 508 32 c 290 0 494 -35 494 -35 v 45 h -1002 z"></path> </svg></div>\n    </div>\n\n\n\n    \n    \n    <ion-list class="login-form" ion-card>\n\n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.email"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input clearInput type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        \n        <button ion-button full color=\'secondary\' class="login-button" (click)="login()" [disabled]="user.loading">\n            Log In\n            <ion-spinner *ngIf="user.loading"></ion-spinner>\n        </button>\n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n         \n        <p>Don\'t have an account? <a (click)="signup()">Sign up</a></p>\n   \n        \n        \n    </ion-list>\n    \n\n</ion-content>\n\n\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-//# sourceMappingURL=login.js.map
-
-/***/ }),
-
 /***/ 122:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -385,9 +290,9 @@ webpackEmptyAsyncContext.id = 175;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_jobs_contractor_jobs__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_jobs_customer_jobs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_jobs_contractor_jobs__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_jobs_customer_jobs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(51);
@@ -600,6 +505,8 @@ var AppSettings = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(65);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -613,6 +520,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /*
   Generated class for the AuthenticationProvider provider.
 
@@ -620,9 +529,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.
 */
 var JobProvider = /** @class */ (function () {
-    function JobProvider(http, storage) {
+    function JobProvider(http, storage, app) {
         this.http = http;
         this.storage = storage;
+        this.app = app;
     }
     JobProvider.prototype.createJob = function (job) {
         var _this = this;
@@ -734,6 +644,12 @@ var JobProvider = /** @class */ (function () {
                     _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_app_settings__["a" /* AppSettings */].apiUrl + "/jobrequests?token=" + token).subscribe(function (res) {
                         resolve(res);
                     }, function (e) {
+                        if (e && e.error && e.error.status_code === 401) {
+                            //token expired, logout
+                            _this.storage.clear();
+                            _this.app.getRootNav().setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */]);
+                            _this.app.getRootNav().popToRoot();
+                        }
                         reject(e);
                     });
                 }
@@ -751,6 +667,12 @@ var JobProvider = /** @class */ (function () {
                     _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_app_settings__["a" /* AppSettings */].apiUrl + "/jobrequests?token=" + token + "&pricelow=" + filters.priceLow + "&pricehigh=" + filters.priceHigh + "&orderby=" + filters.orderBy + "&orderdirection=" + filters.orderDirection).subscribe(function (res) {
                         resolve(res);
                     }, function (e) {
+                        if (e && e.error && e.error.status_code === 401) {
+                            //token expired, logout
+                            _this.storage.clear();
+                            _this.app.getRootNav().setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */]);
+                            _this.app.getRootNav().popToRoot();
+                        }
                         reject(e);
                     });
                 }
@@ -796,7 +718,7 @@ var JobProvider = /** @class */ (function () {
     };
     JobProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* App */]])
     ], JobProvider);
     return JobProvider;
 }());
@@ -1402,10 +1324,10 @@ var EditJobModal = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_email_composer__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_update_radius_update_radius__ = __webpack_require__(348);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1669,12 +1591,12 @@ var UpdateRadiusModal = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopoverPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_job_contractor_job__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_job_customer_job__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_job_contractor_job__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_job_customer_job__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_profile_profile__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1760,10 +1682,9 @@ var PopoverPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'notifications-popover',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/'<ion-list class="tools-popover">\n    <ion-item class=\'empty-notifications\' *ngIf="notifications.length < 1">\n        <h2>No Notifications</h2>\n    </ion-item>\n    <button ion-item *ngFor="let notification of notifications; let i = index" (click)="viewNotification(i, notification)" [ngClass]="{\'unread\':!notification.read}">\n            {{notification.title}}\n    </button>\n</ion-list>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\components\notifications\popover.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
     ], PopoverPage);
     return PopoverPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=popover.js.map
@@ -1795,19 +1716,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(424);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_signup_signup__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_profile_profile__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_customer_jobs_customer_jobs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_customer_job_customer_job__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contractor_job_contractor_job__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_customer_jobs_customer_jobs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_customer_job_customer_job__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_contractor_job_contractor_job__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_settings_settings__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modals_filters_filters__ = __webpack_require__(342);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_create_job_create_job__ = __webpack_require__(343);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modals_edit_job_edit_job__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__modals_find_address_find_address__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__modals_create_review_create_review__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__modals_create_review_create_review__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__modals_edit_profile_edit_profile__ = __webpack_require__(341);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__modals_update_radius_update_radius__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(48);
@@ -1822,11 +1743,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_notifications_notifications__ = __webpack_require__(438);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_notifications_popover__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_components_module__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_authentication_authentication__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_authentication_authentication__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_review_review__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_notification_notification__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_notification_notification__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2055,14 +1976,14 @@ var ProfileProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_jobs_customer_jobs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contractor_job_contractor_job__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_customer_job_customer_job__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_customer_jobs_customer_jobs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contractor_job_contractor_job__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_customer_job_customer_job__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_settings_settings__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_authentication_authentication__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_storage__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_job_job__ = __webpack_require__(34);
@@ -2122,12 +2043,16 @@ var MyApp = /** @class */ (function () {
                 if (user.permission === "contractor") {
                     _this.pages[0].component = __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */];
                     _this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */];
+                    _this.app.getRootNav().setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */]);
+                    _this.app.getRootNav().popToRoot();
                 }
                 else {
                     _this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_customer_jobs_customer_jobs__["a" /* CustomerJobsPage */];
+                    _this.app.getRootNav().setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */]);
+                    _this.app.getRootNav().popToRoot();
                 }
             }
-            _this.splashScreen.hide();
+            setTimeout(function () { _this.splashScreen.hide(); }, 500);
         }).catch(function () {
             _this.splashScreen.hide();
         });
@@ -2515,7 +2440,7 @@ webpackContext.id = 434;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications_popover__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2561,10 +2486,9 @@ var NotificationsDirective = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */])({
             selector: '[notifications]'
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* PopoverController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__["a" /* NotificationProvider */]])
     ], NotificationsDirective);
     return NotificationsDirective;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=notifications.js.map
@@ -2845,6 +2769,110 @@ var ReviewProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the AuthenticationProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var NotificationProvider = /** @class */ (function () {
+    function NotificationProvider(http, storage) {
+        this.http = http;
+        this.storage = storage;
+    }
+    NotificationProvider.prototype.getNotifications = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.storage.get("notifications").then(function (data) {
+                if (data) {
+                    resolve(data);
+                }
+                else {
+                    resolve([]);
+                }
+            });
+        });
+    };
+    NotificationProvider.prototype.addNotification = function (notification) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.storage.get("notifications").then(function (data) {
+                var notifications = [];
+                if (data) {
+                    notifications = data;
+                }
+                if (notifications.length > 5) {
+                    notifications.shift();
+                }
+                notification.read = false;
+                notifications.push(notification);
+                _this.storage.set("notifications", notifications).then(function () {
+                    resolve();
+                });
+            });
+        });
+    };
+    NotificationProvider.prototype.updateNotification = function (index) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.storage.get("notifications").then(function (notifications) {
+                if (notifications && notifications[index]) {
+                    notifications[index].read = true;
+                    _this.storage.set("notifications", notifications).then(function () {
+                        resolve();
+                    });
+                }
+            });
+        });
+    };
+    NotificationProvider.prototype.getNotificationCount = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.storage.get("notifications").then(function (notifications) {
+                var count = 0;
+                if (notifications) {
+                    for (var _i = 0, notifications_1 = notifications; _i < notifications_1.length; _i++) {
+                        var notification = notifications_1[_i];
+                        if (!notification.read) {
+                            count += 1;
+                        }
+                    }
+                }
+                resolve(count);
+            });
+        });
+    };
+    NotificationProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    ], NotificationProvider);
+    return NotificationProvider;
+}());
+
+//# sourceMappingURL=notification.js.map
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
@@ -2985,19 +3013,114 @@ var AuthenticationProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contractor_jobs_contractor_jobs__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customer_jobs_customer_jobs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_authentication_authentication__ = __webpack_require__(55);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParams, authProvider, statusBar) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authProvider = authProvider;
+        this.statusBar = statusBar;
+        this.user = { email: "", password: "", error: "", loading: false };
+    }
+    LoginPage.prototype.ionViewDidEnter = function () {
+        this.statusBar.backgroundColorByHexString("#5697ab");
+    };
+    LoginPage.prototype.login = function () {
+        var _this = this;
+        this.user.loading = true;
+        this.user.error = "";
+        this.authProvider.login(this.user).then(function (token) {
+            _this.authProvider.getUserData().then(function (user) {
+                _this.user.loading = false;
+                if (user["permission"] === "contractor") {
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__contractor_jobs_contractor_jobs__["a" /* ContractorJobsPage */]);
+                    _this.navCtrl.popToRoot();
+                }
+                else {
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__customer_jobs_customer_jobs__["a" /* CustomerJobsPage */]);
+                    _this.navCtrl.popToRoot();
+                }
+            }).catch(function (e) {
+                _this.user.loading = false;
+            });
+        }).catch(function (e) {
+            _this.user.loading = false;
+            if (e && e.status === 401) {
+                _this.user.error = "Invalid credentials";
+            }
+            else if (e && e.status === 422) {
+                for (var _i = 0, _a = e.error.error.errors; _i < _a.length; _i++) {
+                    var error = _a[_i];
+                    _this.user.error = _this.user.error + error + " ";
+                }
+            }
+            else {
+                _this.user.error = e.message;
+            }
+        });
+    };
+    LoginPage.prototype.signup = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/'<ion-content>\n    \n    <div class="login-top-section">\n    \n        <h1 class="logo-text">Mow My Lawn</h1>\n\n        <img class="logo" src="assets/imgs/logo-icon.png" />\n        \n        <p>Find or post lawn mowing jobs</p>\n        <div class=\'bg\'></div>\n        <div class="nectar-shape-divider-wrap " data-front="" data-style="curve_opacity" data-position="top"><svg class="nectar-shape-divider" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 14 s 88.64 3.48 300 36 c 260 40 514 27 703 -10 l 12 28 l 3 36 h -1018 z"></path> <path d="M 0 45 s 271 45.13 500 32 c 157 -9 330 -47 515 -63 v 86 h -1015 z"></path> <path d="M 0 58 s 188.29 32 508 32 c 290 0 494 -35 494 -35 v 45 h -1002 z"></path> </svg></div>\n    </div>\n\n\n\n    \n    \n    <ion-list class="login-form" ion-card>\n\n        <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.email"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input clearInput type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        \n        <button ion-button full color=\'secondary\' class="login-button" (click)="login()" [disabled]="user.loading">\n            Log In\n            <ion-spinner *ngIf="user.loading"></ion-spinner>\n        </button>\n        \n        <p class="login-error" *ngIf="user.error">{{user.error}}</p>\n         \n        <p>Don\'t have an account? <a (click)="signup()">Sign up</a></p>\n   \n        \n        \n    </ion-list>\n    \n\n</ion-content>\n\n\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\login\login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContractorJobsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_job_contractor_job__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contractor_job_contractor_job__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_filters_filters__ = __webpack_require__(342);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_review_review__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(11);
@@ -3163,17 +3286,16 @@ var ContractorJobsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-contractor-jobs',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-jobs\contractor-jobs.html"*/'<!--\n  Generated template for the ContractorJobsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="secondary">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>      \n\n        <ion-title>Jobs</ion-title>\n        \n        <ion-buttons end>\n            <button ion-button icon-only notifications tappable>\n                <ion-icon name="notifications" ></ion-icon>\n                <ion-badge color="danger" *ngIf="notificationCount > 0">{{notificationCount}}</ion-badge>\n            </button>\n        </ion-buttons>        \n        \n        \n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    \n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>     \n\n    \n    <ion-segment color="secondary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="available">\n            Available\n        </ion-segment-button>\n      <ion-segment-button value="current">\n            Current <ion-badge *ngIf="currentJobs.length > 0" color="danger">{{currentJobs.length}}</ion-badge>\n      </ion-segment-button>\n      <ion-segment-button value="completed">\n            Completed\n      </ion-segment-button>        \n    </ion-segment>\n\n    <div class="jobs-loading" *ngIf="properties.loading">\n        <ion-spinner></ion-spinner>\n    </div>\n\n    <ion-list *ngIf="properties.activeTab === \'available\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="availableJobs.length < 1 && !properties.loading">\n            <ion-icon name="locate"></ion-icon>\n            <h3>No available jobs in your area</h3>\n        </div>\n        <ion-item (click)="openJob($event,job)" *ngFor="let job of availableJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                <ion-badge *ngIf="job.applied" color="secondary">Applied</ion-badge>\n                {{job.title}}\n            </h2>\n            <p>Listed {{formatTime2(job.created_at)}}</p>\n            <div class=\'listing-price\' item-end>${{job.price}}</div>\n        </ion-item>    \n\n        \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'current\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="currentJobs.length < 1 && !properties.loading">\n            <ion-icon name="time"></ion-icon>\n            <h3>No jobs currently in progress</h3>\n        </div>        \n        <ion-item (click)="openJob($event,job)" *ngFor="let job of currentJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                {{job.title}}\n            </h2>\n            <p>To be done {{formatTime(job.created_at)}}</p>\n            <div class=\'listing-price\' item-end>${{job.price}}</div>\n        </ion-item>    \n\n        \n    </ion-list>    \n    \n    <ion-list *ngIf="properties.activeTab === \'completed\'" class=\'jobs-list\'>\n        <div class=\'jobs-list-empty\' *ngIf="completedJobs.length < 1 && !properties.loading">\n            <ion-icon name="checkbox"></ion-icon>\n            <h3>No jobs completed</h3>\n        </div>            \n        <ion-item (click)="openJob($event,job)" *ngFor="let job of completedJobs">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                {{job.title}}\n            </h2>\n            <p>Completed {{formatTime2(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="createReview($event, job)" *ngIf="requiresReview(job)" color="danger">Write Review</button>\n            <button ion-button clear item-end (click)="openJob($event, job)" *ngIf="!requiresReview(job)">View</button>\n        </ion-item>    \n\n        \n    </ion-list>       \n    \n    \n</ion-content>\n\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'secondary\' (click)="openFilters()"><ion-icon name="funnel"></ion-icon>&nbsp;&nbsp;Filters</button>\n\n</ion-footer>'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\contractor-jobs\contractor-jobs.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_review_review__["a" /* ReviewProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_review_review__["a" /* ReviewProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_5__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */]])
     ], ContractorJobsPage);
     return ContractorJobsPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=contractor-jobs.js.map
 
 /***/ }),
 
-/***/ 65:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3314,112 +3436,7 @@ var ContractorJobPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 66:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the AuthenticationProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var NotificationProvider = /** @class */ (function () {
-    function NotificationProvider(http, storage) {
-        this.http = http;
-        this.storage = storage;
-    }
-    NotificationProvider.prototype.getNotifications = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.storage.get("notifications").then(function (data) {
-                if (data) {
-                    resolve(data);
-                }
-                else {
-                    resolve([]);
-                }
-            });
-        });
-    };
-    NotificationProvider.prototype.addNotification = function (notification) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.storage.get("notifications").then(function (data) {
-                var notifications = [];
-                if (data) {
-                    notifications = data;
-                }
-                if (notifications.length > 5) {
-                    notifications.shift();
-                }
-                notification.read = false;
-                notifications.push(notification);
-                _this.storage.set("notifications", notifications).then(function () {
-                    resolve();
-                });
-            });
-        });
-    };
-    NotificationProvider.prototype.updateNotification = function (index) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.storage.get("notifications").then(function (notifications) {
-                if (notifications && notifications[index]) {
-                    notifications[index].read = true;
-                    _this.storage.set("notifications", notifications).then(function () {
-                        resolve();
-                    });
-                }
-            });
-        });
-    };
-    NotificationProvider.prototype.getNotificationCount = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.storage.get("notifications").then(function (notifications) {
-                var count = 0;
-                if (notifications) {
-                    for (var _i = 0, notifications_1 = notifications; _i < notifications_1.length; _i++) {
-                        var notification = notifications_1[_i];
-                        if (!notification.read) {
-                            count += 1;
-                        }
-                    }
-                }
-                resolve(count);
-            });
-        });
-    };
-    NotificationProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object])
-    ], NotificationProvider);
-    return NotificationProvider;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=notification.js.map
-
-/***/ }),
-
-/***/ 67:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3473,7 +3490,7 @@ var CreateReviewModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3483,13 +3500,13 @@ var CreateReviewModal = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_create_job_create_job__ = __webpack_require__(343);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_edit_job_edit_job__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_job_job__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__customer_job_customer_job__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__customer_job_customer_job__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_review_review__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_create_review_create_review__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3682,17 +3699,16 @@ var CustomerJobsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-customer-jobs',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/'<!--\n  Generated template for the CustomerJobsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="primary">\n        \n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>         \n        \n        <ion-title>Jobs</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only notifications tappable>\n                <ion-icon name="notifications" ></ion-icon>\n                <ion-badge color="danger" *ngIf="notificationCount > 0">{{notificationCount}}</ion-badge>\n            </button>\n        </ion-buttons>         \n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    \n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>    \n    \n    <ion-segment color="primary" [(ngModel)]="properties.activeTab">\n        <ion-segment-button value="created">\n            My Jobs\n        </ion-segment-button>\n      <ion-segment-button value="completed">\n            Completed\n      </ion-segment-button>       \n    </ion-segment>\n\n    <div class="jobs-loading" *ngIf="properties.loading">\n        <ion-spinner></ion-spinner>\n    </div>\n    \n    \n\n    <ion-list *ngIf="properties.activeTab === \'created\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="openJobs.length < 1 && !properties.loading">\n            <ion-icon name="create"></ion-icon>\n            <h3>No created jobs</h3>\n        </div>               \n        \n        <ion-item *ngFor="let job of openJobs; let i = index" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>\n                <ion-badge *ngIf="job.status === \'open\' && job.applications.length > 0" color="danger">{{job.applications.length}} Application<span *ngIf="job.applications.length !== 1">s</span></ion-badge>\n                <ion-badge *ngIf="job.status === \'inprogress\'" color="primary">In Progress</ion-badge>\n                {{job.title}}</h2>\n            <p>To be done {{formatTime(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="openEditJob($event, job, i)">Edit</button>\n        </ion-item>   \n    </ion-list>\n    \n    \n    <ion-list *ngIf="properties.activeTab === \'completed\'" class=\'jobs-list\'>\n        \n        <div class=\'jobs-list-empty\' *ngIf="completedJobs.length < 1 && !properties.loading">\n            <ion-icon name="checkbox"></ion-icon>\n            <h3>No completed jobs</h3>\n        </div>           \n        <ion-item *ngFor="let job of completedJobs" (click)="openJob($event, job)">\n            <ion-thumbnail item-start>\n                <img [src]="getPrimaryImage(job)">\n            </ion-thumbnail>\n            <h2>{{job.title}}</h2>\n            <p>Completed {{formatTime2(job.preferred_time)}} for ${{job.price}}</p>\n            <button ion-button clear item-end (click)="createReview($event, job)" *ngIf="requiresReview(job)" color="danger">Write Review</button>\n            <button ion-button clear item-end (click)="openJob($event, job)" *ngIf="!requiresReview(job)">View</button>\n        </ion-item>   \n    </ion-list>    \n\n</ion-content>\n\n<ion-footer class=\'filter-footer\'>\n    <button ion-button color=\'primary\' (click)="openCreateJob()"><ion-icon name="add"></ion-icon>&nbsp;&nbsp;Create New Job</button>\n\n</ion-footer>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\lawnmower\lawnmower\src\pages\customer-jobs\customer-jobs.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__providers_review_review__["a" /* ReviewProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_review_review__["a" /* ReviewProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_job_job__["a" /* JobProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_6__providers_review_review__["a" /* ReviewProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_10__providers_notification_notification__["a" /* NotificationProvider */]])
     ], CustomerJobsPage);
     return CustomerJobsPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=customer-jobs.js.map
 
 /***/ }),
 
-/***/ 69:
+/***/ 70:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3704,7 +3720,7 @@ var CustomerJobsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_job_job__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_review_review__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_profile__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_create_review_create_review__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_create_review_create_review__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
